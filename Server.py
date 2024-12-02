@@ -1,3 +1,5 @@
+from newsapi import NewsApiClient
+
 import socket
 import threading
 
@@ -9,10 +11,36 @@ def handle_client(client_socket):
     name = client_socket.recv(1024).decode('utf-8')
     print(f"Connecting with: {name}")
     client_socket.sendall(b"Hello, " + name.encode('utf-8'))
-    main_menu = ["Search Headlines","List of Sources","Quit"]
-    heading_menu = ["Search for keywords", "Search by category","Search by country", "List all new headlines", "Back to the main menu"]
-    source_menu = ["Search by category","Search by country", "Search by language","List all", "Back to the main menu"]
-    
+    while True:
+        news = NewsApiClient(api_key='669044070939452b80060306171002d9')
+        request = client_socket.recv(1024).decode('utf-8')
+        requestList = request.split("-")
+        if requestList[0] == "headline":
+            if requestList[1]=="keyword":
+                response = news.get_top_headlines(q=requestList[2])
+            elif requestList[1]=="category":
+                response = news.get_top_headlines(category=requestList[2])
+            elif requestList[1]=="country":
+                response = news.get_top_headlines(country=requestList[2])
+            elif requestList[1]=="all":
+               response = news.get_top_headlines()
+        elif requestList[0]=="source":
+            if requestList[1]=="category":
+                response = news.get_sources(category=requestList[2])
+            elif requestList[1]=="country":
+                response = news.get_sources(country=requestList[2])
+            elif requestList[1]=="language":
+                response = news.get_sources(language=requestList[2])
+            elif requestList[1]=="all":
+               response = news.get_sources()
+    print(response)
+            
+
+
+        
+        
+        
+
     client_socket.close()
 
 # Main server function
