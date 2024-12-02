@@ -31,4 +31,4 @@ def start_server(server_ip, server_port):
         client_handler.start()
 
 if __name__ == "__main__":
-    start_server("0.0.0.0", 9999)
+    start_server("127.0.0.1", 65432)
