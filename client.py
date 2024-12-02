@@ -1,10 +1,13 @@
 import socket
 
-#host and port
-Host='127.0.0.1'
-Port= 12354
+username=input("Enter your username")
 
+host="127.0.0.1"
+port= 13256
+#create socket
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.bind((Host,Port))
-    s.listen
-    connection , address = s.accept()
+    s.connect(host , port)
+    s.send("User name:", username)
+    
+    data= s.recv(1024)
+    print(f"received {data}")
