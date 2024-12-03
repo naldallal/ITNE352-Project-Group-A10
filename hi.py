@@ -1,6 +1,6 @@
 from newsapi import NewsApiClient
 import json
-
+name="uuu"
 news = NewsApiClient(api_key='d9968ffc1e7f4b02b859492ab750f911')
 request = "headline-country-us"
 requestList = request.split("-")
@@ -22,21 +22,19 @@ elif requestList[0]=="source":
         response = news.get_sources(language=requestList[2])
     elif requestList[1]=="all":
         response = news.get_sources()
-
 if response: # Extract relevant details and create a list of dictionaries 
-    articles = response.get('articles', []) 
+    articles = response['articles'] 
     articles = articles[:15]
+    fileName = name+'-'+request+'-A10'
+    with open(fileName, 'w') as json_file:
+        json.dump(articles, json_file, indent=4)
     articles_list = [ 
             { "source_name": article['source']['name'], 
              "author": article['author'], 
-             "title": article['title'], 
-             "url": article['url'], 
-             "description": article['description'], 
-             "publish_date": article['publishedAt'].split('T')[0], 
-             "publish_time": article['publishedAt'].split('T')[1].split('Z')[0] 
-             } for article in articles
+             "title": article['title']
+            } for article in articles
         ]
-
+    
 for i in range(len(articles_list)):
-    print(i,type(articles_list[i]))
+    print(i+1,(articles_list[i]))
 # print(articles_list)

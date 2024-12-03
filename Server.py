@@ -1,18 +1,18 @@
 from newsapi import NewsApiClient
-
+import json
 import socket
 import threading
 
 # Function to handle client connections
 def handle_client(client_socket):
-    from time import sleep
+    # from time import sleep
     # client_socket.send(b'Hello, Client!\nWhat is your name?')
     # Get the client's message
     name = client_socket.recv(1024).decode('utf-8')
     print(f"Connecting with: {name}")
     client_socket.sendall(b"Hello, " + name.encode('utf-8'))
     while True:
-        news = NewsApiClient(api_key='669044070939452b80060306171002d9')
+        news = NewsApiClient(api_key='d9968ffc1e7f4b02b859492ab750f911')
         request = client_socket.recv(1024).decode('utf-8')
         requestList = request.split("-")
         if requestList[0] == "headline":
@@ -23,7 +23,7 @@ def handle_client(client_socket):
             elif requestList[1]=="country":
                 response = news.get_top_headlines(country=requestList[2])
             elif requestList[1]=="all":
-               response = news.get_top_headlines()
+                response = news.get_top_headlines()
         elif requestList[0]=="source":
             if requestList[1]=="category":
                 response = news.get_sources(category=requestList[2])
@@ -32,8 +32,29 @@ def handle_client(client_socket):
             elif requestList[1]=="language":
                 response = news.get_sources(language=requestList[2])
             elif requestList[1]=="all":
-               response = news.get_sources()
-    print(response)
+                response = news.get_sources()
+        if response: # Extract relevant details and create a list of dictionaries 
+            articles = response['articles'] 
+            articles = articles[:15]
+            fileName = name+'-'+request+'-A10'
+        with open(fileName, 'w') as json_file:
+                json.dump(articles, json_file, indent=4)
+        articles_list = [ 
+                { "source_name": article['source']['name'], 
+                 "author": article['author'], 
+                 "title": article['title']
+                } for article in articles
+            ]
+        client_socket.sendall(str(articles_list).encode('utf-8'))
+        n=client_socket.recv(1024).decode('utf-8')
+        if n=="exit":
+            client_socket.sendall(b"Bye")
+            break
+        elif int(n)<len(articles_list):
+            client_socket.sendall(str(articles_list[int(n)]).encode('utf-8'))
+
+        
+    # print(response)
             
 
 
