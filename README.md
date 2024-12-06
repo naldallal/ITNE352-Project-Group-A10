@@ -5,11 +5,11 @@ This project is a multithreaded news information system that allows users to sea
 ## Semester
 First semester 2023-2024
 ## Group
-Group: A10
-Course code: ITNE352
-Section: 1
-Student name - ID: Noor Zaher Aldallal - 202210337
-Student name - ID: Noor Shafeeq Ashoor - 202210100
+Group: A10 \
+Course code: ITNE352 \ 
+Section: 1 \
+Student name - ID: Noor Zaher Aldallal - 202210337 \
+Student name - ID: Noor Shafeeq Ashoor - 202210100 \
 ## Table of Contents
 + README.md
 + Server.py
