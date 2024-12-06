@@ -11,20 +11,20 @@ Section: 1
 Student name - ID: Noor Zaher Aldallal - 202210337
 Student name - ID: Noor Shafeeq Ashoor - 202210100
 ## Table of Contents
-a. README.md
-b. Server.py
-c. Client.py
-d. JSON files
++ README.md
++ Server.py
++ Client.py
++ JSON files
 ## Requirements
 Ensure that you have Python installed on your system.
 Install newsapi module by running the following command: 
 pip install newsapi-python
 Ensure that you have Python installed on your system.
 Ensure that you have the required libraries and modules:
-a. json
-b. socket
-c. threading
-d. os
+- json
+- socket
+- threading
+- os
 ## How to Run
 1. Run the server.py file on the server machine.
 2. Run the client.py file on the client machine.
