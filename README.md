@@ -6,20 +6,20 @@ This project is a multithreaded news information system that allows users to sea
 First semester 2023-2024
 ## Group
 Group: A10 \
-Course code: ITNE352 \ 
+Course code: ITNE352 \
 Section: 1 \
 Student name - ID: Noor Zaher Aldallal - 202210337 \
-Student name - ID: Noor Shafeeq Ashoor - 202210100 \
+Student name - ID: Noor Shafeeq Ashoor - 202210100 
 ## Table of Contents
 + README.md
 + Server.py
 + Client.py
 + JSON files
 ## Requirements
-Ensure that you have Python installed on your system.
-Install newsapi module by running the following command: 
-pip install newsapi-python
-Ensure that you have Python installed on your system.
+Ensure that you have Python installed on your system. \
+Install newsapi module by running the following command: \
+pip install newsapi-python \
+Ensure that you have Python installed on your system. \
 Ensure that you have the required libraries and modules:
 - json
 - socket
