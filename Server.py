@@ -18,6 +18,8 @@ def handle_client(client_socket):
         request = client_socket.recv(1024).decode('utf-8')
         if request =="quit":
             client_socket.close()
+            print("Client",name,"disconnected")
+
             return
         articles=[]
         if os.path.exists(name+'-'+request+'-A10'):
@@ -63,10 +65,13 @@ def handle_client(client_socket):
             continue
         elif n=="quit":
             client_socket.close()
+            print("Client",name,"disconnected")
             return
         elif int(n)<len(articles_list):
             client_socket.sendall(str(articles_list[int(n)]).encode('utf-8'))
     client_socket.close()
+    print("Client",name,"disconnected")
+
  
 # Main server function
 def start_server(server_ip, server_port):
