@@ -2,43 +2,55 @@ from newsapi import NewsApiClient
 import json
 import socket
 import threading
-
+import os
 # Function to handle client connections
 def handle_client(client_socket):
     # from time import sleep
     # client_socket.send(b'Hello, Client!\nWhat is your name?')
     # Get the client's message
     name = client_socket.recv(1024).decode('utf-8')
+    # print the client's name
     print(f"Connecting with: {name}")
+    # Send a greeting message to the client
     client_socket.sendall(b"Hello, " + name.encode('utf-8'))
     while True:
         news = NewsApiClient(api_key='d9968ffc1e7f4b02b859492ab750f911')
         request = client_socket.recv(1024).decode('utf-8')
-        requestList = request.split("-")
-        if requestList[0] == "headline":
-            if requestList[1]=="keyword":
-                response = news.get_top_headlines(q=requestList[2])
-            elif requestList[1]=="category":
-                response = news.get_top_headlines(category=requestList[2])
-            elif requestList[1]=="country":
-                response = news.get_top_headlines(country=requestList[2])
-            elif requestList[1]=="all":
-                response = news.get_top_headlines()
-        elif requestList[0]=="source":
-            if requestList[1]=="category":
-                response = news.get_sources(category=requestList[2])
-            elif requestList[1]=="country":
-                response = news.get_sources(country=requestList[2])
-            elif requestList[1]=="language":
-                response = news.get_sources(language=requestList[2])
-            elif requestList[1]=="all":
-                response = news.get_sources()
-        if response: # Extract relevant details and create a list of dictionaries 
-            articles = response['articles'] 
-            articles = articles[:15]
-            fileName = name+'-'+request+'-A10'
-        with open(fileName, 'w') as json_file:
-                json.dump(articles, json_file, indent=4)
+        if request =="quit":
+            client_socket.close()
+            return
+        articles=[]
+        if os.path.exists(name+'-'+request+'-A10'):
+            print("File found")
+            with open(name+'-'+request+'-A10', 'r') as json_file:
+                articles = json.load(json_file)
+        else:
+            print("No file found")
+            requestList = request.split("-")
+            if requestList[0] == "headline":
+                if requestList[1]=="keyword":
+                    response = news.get_top_headlines(q=requestList[2])
+                elif requestList[1]=="category":
+                    response = news.get_top_headlines(category=requestList[2])
+                elif requestList[1]=="country":
+                    response = news.get_top_headlines(country=requestList[2])
+                elif requestList[1]=="all":
+                    response = news.get_top_headlines()
+            elif requestList[0]=="source":
+                if requestList[1]=="category":
+                    response = news.get_sources(category=requestList[2])
+                elif requestList[1]=="country":
+                    response = news.get_sources(country=requestList[2])
+                elif requestList[1]=="language":
+                    response = news.get_sources(language=requestList[2])
+                elif requestList[1]=="all":
+                    response = news.get_sources()
+            if response: # Extract relevant details and create a list of dictionaries 
+                articles = response['articles'] 
+                articles = articles[:15]
+                fileName = name+'-'+request+'-A10'
+            with open(fileName, 'w') as json_file:
+                    json.dump(articles, json_file, indent=4)
         articles_list = [ 
                 { "source_name": article['source']['name'], 
                  "author": article['author'], 
@@ -48,20 +60,12 @@ def handle_client(client_socket):
         client_socket.sendall(str(articles_list).encode('utf-8'))
         n=client_socket.recv(1024).decode('utf-8')
         if n=="exit":
-            client_socket.sendall(b"Bye")
-            break
+            continue
+        elif n=="quit":
+            client_socket.close()
+            return
         elif int(n)<len(articles_list):
             client_socket.sendall(str(articles_list[int(n)]).encode('utf-8'))
-
-        
-    # print(response)
-            
-
-
-        
-        
-        
-
     client_socket.close()
 
 # Main server function
@@ -73,7 +77,8 @@ def start_server(server_ip, server_port):
 
     while True:
         client_socket, addr = server.accept()
-        print(f"[*] Accepted connection from {addr[0]}:{addr[1]}")
+        # print that the client has connected
+        print(f"Accepted connection from {addr[0]}:{addr[1]}")
         
         # Create a new thread to handle the client
         client_handler = threading.Thread(target=handle_client, args=(client_socket,))
