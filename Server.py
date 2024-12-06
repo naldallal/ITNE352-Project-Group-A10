@@ -3,9 +3,9 @@ import json
 import socket
 import threading
 import os
+
 # Function to handle client connections
 def handle_client(client_socket):
-    # from time import sleep
     # client_socket.send(b'Hello, Client!\nWhat is your name?')
     # Get the client's message
     name = client_socket.recv(1024).decode('utf-8')
@@ -67,14 +67,14 @@ def handle_client(client_socket):
         elif int(n)<len(articles_list):
             client_socket.sendall(str(articles_list[int(n)]).encode('utf-8'))
     client_socket.close()
-
+ 
 # Main server function
 def start_server(server_ip, server_port):
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind((server_ip, server_port))
     server.listen(5)
     print(f"[*] Listening on {server_ip}:{server_port}")
-
+ 
     while True:
         client_socket, addr = server.accept()
         # print that the client has connected
@@ -83,6 +83,6 @@ def start_server(server_ip, server_port):
         # Create a new thread to handle the client
         client_handler = threading.Thread(target=handle_client, args=(client_socket,))
         client_handler.start()
-
+ 
 if __name__ == "__main__":
-    start_server("0.0.0.0", 9999)
+    start_server("127.0.0.1", 9999)
