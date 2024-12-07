@@ -6,189 +6,186 @@ from tkinter import messagebox, simpledialog
 SERVER_IP = '127.0.0.1'
 SERVER_PORT = 9999
 
-class NewsClient:
-    def __init__(self, master):
-        # main window in the app & title of it
-        self.master = master
-        self.master.title("News Client")
-        
+# Create client socket
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-        # create client socket 
-        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.connect_to_server()
+# Connect to the server
+def connect_to_server():
+    client_socket.connect((SERVER_IP, SERVER_PORT))
 
-        # user will enter his name in the dialog box 
-        self.username = simpledialog.askstring("Input", "Enter your name:")
-        self.client_socket.sendall(self.username.encode('utf-8'))
+# Display message in a message box
+def show_message(message):
+    messagebox.showinfo("Response", message)
 
-        #Greeting 
-        greeting = self.client_socket.recv(1024).decode('utf-8')
-        self.show_message(greeting)
+# Handle quitting the app
+def quit_app():
+    client_socket.sendall(b'Quit')
+    client_socket.close()
+    root.quit()
 
-        # call the (creat_widgets ) method to setup the main menu
-        self.create_widgets()
+# Handle searching headlines by keyword
+def search_by_keyword():
+    keyword = simpledialog.askstring("Input", "Enter the keyword:")
+    client_socket.sendall(f"headline-keyword-{keyword}".encode('utf-8'))
+    response = client_socket.recv(4096).decode('utf-8')
+    show_message(response)
+    show_results(response)
 
-    # connect with the server 
-    def connect_to_server(self):
-            self.client_socket.connect((SERVER_IP, SERVER_PORT))
+# Handle searching headlines by category
+def search_by_category():
+    category = simpledialog.askstring("Input", "Enter category [ business, general, health, science, sports, technology ]:")
+    client_socket.sendall(f"headline-category-{category}".encode('utf-8'))
+    response = client_socket.recv(4096).decode('utf-8')
+    show_message(response)
+    show_results(response)
 
-    # set up main menu interface
-    def create_widgets(self):
-        # creat frame for main menu & pack to control the placement and layout of widgets within a container
-        self.main_menu = tk.Frame(self.master)
-        self.main_menu.pack()
-        self.label = tk.Label(self.main_menu, text="Main Menu")
-        self.label.pack()
+# Handle searching headlines by country
+def search_by_country():
+    country = simpledialog.askstring("Input", "Enter a country [au, ca, jp, ae, sa, kr, us, ma]:")
+    client_socket.sendall(f"headline-country-{country}".encode('utf-8'))
+    response = client_socket.recv(4096).decode('utf-8')
+    show_message(response)
+    show_results(response)
 
-        # buttons for options in the main menu 
-        self.search_button = tk.Button(self.main_menu, text="Search Headlines", command=self.search_headlines)
-        self.search_button.pack()
+# Handle listing all headlines
+def list_all_headlines():
+    client_socket.sendall(b"headline-all")
+    response = client_socket.recv(4096).decode('utf-8')
+    show_message(response)
+    show_results(response)
 
-        self.list_sources_button = tk.Button(self.main_menu, text="List of Sources", command=self.list_sources)
-        self.list_sources_button.pack()
-
-        self.quit_button = tk.Button(self.main_menu, text="Quit", command=self.quit)
-        self.quit_button.pack()
-
-    # method opens a new window for searching headlines
-    def search_headlines(self):
-        #top-level to open seperate window for " search headlines "
-        self.headlines_window = tk.Toplevel(self.master)
-        self.headlines_window.title("Search Headlines")
-
-        self.label = tk.Label(self.headlines_window, text="Choose an option:")
-        self.label.pack()
-        
-        # create button for parameters of search using headline 
-        self.keyword_button = tk.Button(self.headlines_window, text="Search by Keyword", command=self.search_by_keyword)
-        self.keyword_button.pack()
-
-        self.category_button = tk.Button(self.headlines_window, text="Search by Category", command=self.search_by_category)
-        self.category_button.pack()
-
-        self.country_button = tk.Button(self.headlines_window, text="Search by Country", command=self.search_by_country)
-        self.country_button.pack()
-
-        self.list_all_button = tk.Button(self.headlines_window, text="List All Headlines", command=self.list_all_headlines)
-        self.list_all_button.pack()
-
-        self.back_button = tk.Button(self.headlines_window, text="Back to Main Menu", command=self.headlines_window.destroy)
-        self.back_button.pack()
-
-    # this method triggered when the user selects to search by keyword.
-    def search_by_keyword(self):
-        keyword = simpledialog.askstring("Input", "Enter the keyword:")
-        self.client_socket.sendall(f"headline-keyword-{keyword}".encode('utf-8'))
-        response = self.client_socket.recv(4096).decode('utf-8')
-        self.show_message(response)
-        self.show_results(response)
-        
-    # method is triggered when the user selects to search by category.
-    def search_by_category(self):
-        category = simpledialog.askstring("Input", "Enter category [ business, general, health, science, sports, technology]:")
-        self.client_socket.sendall(f"headline-category-{category}".encode('utf-8'))
-        response = self.client_socket.recv(4096).decode('utf-8')
-        self.show_message(response)
-        self.show_results(response)
-
-    # method is triggered when the user selects to search by country.
-    def search_by_country(self):
-        country = simpledialog.askstring("Input", "Enter a country [au, ca, jp, ae, sa, kr, us, ma]:")
-        self.client_socket.sendall(f"headline-country-{country}".encode('utf-8'))
-        response = self.client_socket.recv(4096).decode('utf-8')
-        self.show_message(response)
-        self.show_results(response)
-
-    # method is triggered when the user selects show all headlines.
-    def list_all_headlines(self):
-        self.client_socket.sendall(b"headline-all")
-        response = self.client_socket.recv(4096).decode('utf-8')
-        self.show_message(response)
-        self.show_results(response)
-
-    # if user click second option it will open new window for list of source 
-    def list_sources(self):
-        self.sources_window = tk.Toplevel(self.master)
-        self.sources_window.title("List of Sources")
-
-        self.label = tk.Label(self.sources_window, text="Choose an option:")
-        self.label.pack()
-        # buttons for paramenters of source 
-        self.category_button = tk.Button(self.sources_window, text="Search by Category", command=self.search_sources_by_category)
-        self.category_button.pack()
-
-        self.country_button = tk.Button(self.sources_window, text="Search by Country", command=self.search_sources_by_country)
-        self.country_button.pack()
-
-        self.language_button = tk.Button(self.sources_window, text="Search by Language", command=self.search_sources_by_language)
-        self.language_button.pack()
-
-        self.list_all_button = tk.Button(self.sources_window, text="List All", command=self.list_all_sources)
-        self.list_all_button.pack()
-
-        self.back_button = tk.Button(self.sources_window, text="Back to Main Menu", command=self.sources_window.destroy)
-        self.back_button.pack()
-
-    # method is triggered when the user selects search by source category.
-    def search_sources_by_category(self):
-        category = simpledialog.askstring("Input", "Enter category [ business, general, health, science, sports, technology ]:")
-        self.client_socket.sendall(f"source-category-{category}".encode('utf-8'))
-        response = self.client_socket.recv(4096).decode('utf-8')
-        self.show_message(response)
-        self.show_results(response)
-
-    # method is triggered when the user selects search by source country.
-    def search_sources_by_country(self):
-        country = simpledialog.askstring("Input", "Enter country [ au, ca, jp, ae, sa, kr, us, ma ]:")
-        self.client_socket.sendall(f"source-country-{country}".encode('utf-8'))
-        response = self.client_socket.recv(4096).decode('utf-8')
-        self.show_message(response)
-        self.show_results(response)
-
-    # method is triggered when the user selects search by source language 
-    def search_sources_by_language(self):
-        language = simpledialog.askstring("Input", "Enter language [ ar, en ]:")
-        self.client_socket.sendall(f"source-language-{language}".encode('utf-8'))
-        response = self.client_socket.recv(4096).decode('utf-8')
-        self.show_message(response)
-        self.show_results(response)
-
-    def list_all_sources(self):
-        self.client_socket.sendall(b"source-all")
-        response = self.client_socket.recv(4096).decode('utf-8')
-        self.show_message(response)
-        self.show_results(response)
-
-    # this method for displays a message box with the provided message
-    def show_results(self, response):
-        results = response.split('\n')
-        self.results_window = tk.Toplevel(self.master)
-        self.results_window.title("results")
-
-        
-        self.num_topic = simpledialog.askfloat("Input", "Select number of topic you are interested in for more details:")
-
-        # Convert the float to an integer
-        self.num_topic = int(self.num_topic)
-
-        self.client_socket.sendall(str(self.num_topic).encode())
-        response = self.client_socket.recv(4096).decode('utf-8')
-        self.show_message(response)
-
-        self.back_button = tk.Button(self.results_window, text="Back to Main Menu", command=self.results_window.destroy)
-        self.back_button.pack()
-
-    def show_message(self, message):
-        messagebox.showinfo("Response", message)   
-        
+# Handle opening a window for searching headlines
+def search_headlines():
+    headlines_window = tk.Toplevel(root)
+    headlines_window.title("Search Headlines")
     
-    # for qoutting the app
-    def quit(self):
-        self.client_socket.sendall(b'Quit')
-        self.client_socket.close()
-        self.master.quit()
+    label = tk.Label(headlines_window, text="Choose an option:")
+    label.pack()
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = NewsClient(root)
-    root.mainloop()
+    keyword_button = tk.Button(headlines_window, text="Search by Keyword", command=search_by_keyword)
+    keyword_button.pack()
+
+    category_button = tk.Button(headlines_window, text="Search by Category", command=search_by_category)
+    category_button.pack()
+
+    country_button = tk.Button(headlines_window, text="Search by Country", command=search_by_country)
+    country_button.pack()
+
+    list_all_button = tk.Button(headlines_window, text="List All Headlines", command=list_all_headlines)
+    list_all_button.pack()
+
+    back_button = tk.Button(headlines_window, text="Back to Main Menu", command=headlines_window.destroy)
+    back_button.pack()
+
+# Handle listing sources
+def list_sources():
+    sources_window = tk.Toplevel(root)
+    sources_window.title("List of Sources")
+    
+    label = tk.Label(sources_window, text="Choose an option:")
+    label.pack()
+
+    category_button = tk.Button(sources_window, text="Search by Category", command=search_sources_by_category)
+    category_button.pack()
+
+    country_button = tk.Button(sources_window, text="Search by Country", command=search_sources_by_country)
+    country_button.pack()
+
+    language_button = tk.Button(sources_window, text="Search by Language", command=search_sources_by_language)
+    language_button.pack()
+
+    list_all_button = tk.Button(sources_window, text="List All", command=list_all_sources)
+    list_all_button.pack()
+
+    back_button = tk.Button(sources_window, text="Back to Main Menu", command=sources_window.destroy)
+    back_button.pack()
+
+# Handle searching sources by category
+def search_sources_by_category():
+    category = simpledialog.askstring("Input", "Enter category [ business, general, health, science, sports, technology ]:")
+    client_socket.sendall(f"source-category-{category}".encode('utf-8'))
+    response = client_socket.recv(4096).decode('utf-8')
+    show_message(response)
+    show_results(response)
+
+# Handle searching sources by country
+def search_sources_by_country():
+    country = simpledialog.askstring("Input", "Enter country [ au, ca, jp, ae, sa, kr, us, ma ]:")
+    client_socket.sendall(f"source-country-{country}".encode('utf-8'))
+    response = client_socket.recv(4096).decode('utf-8')
+    show_message(response)
+    show_results(response)
+
+# Handle searching sources by language
+def search_sources_by_language():
+    language = simpledialog.askstring("Input", "Enter language [ ar, en ]:")
+    client_socket.sendall(f"source-language-{language}".encode('utf-8'))
+    response = client_socket.recv(4096).decode('utf-8')
+    show_message(response)
+    show_results(response)
+
+# Handle listing all sources
+def list_all_sources():
+    client_socket.sendall(b"source-all")
+    response = client_socket.recv(4096).decode('utf-8')
+    show_message(response)
+    show_results(response)
+
+# Handle showing results
+def show_results(response):
+    results = response.split('\n')
+    results_window = tk.Toplevel(root)
+    results_window.title("Results")
+
+    num_topic = simpledialog.askfloat("Input", "Select number of topics you are interested in for more details:")
+
+    # Convert the float to an integer
+    num_topic = int(num_topic)
+
+    client_socket.sendall(str(num_topic).encode())
+    response = client_socket.recv(4096).decode('utf-8')
+    show_message(response)
+
+    back_button = tk.Button(results_window, text="Back to Main Menu", command=results_window.destroy)
+    back_button.pack()
+
+# Main function to create the GUI
+def create_widgets():
+    # Create the main menu
+    main_menu = tk.Frame(root)
+    main_menu.pack()
+
+    label = tk.Label(main_menu, text="Main Menu")
+    label.pack()
+
+    search_button = tk.Button(main_menu, text="Search Headlines", command=search_headlines)
+    search_button.pack()
+
+    list_sources_button = tk.Button(main_menu, text="List of Sources", command=list_sources)
+    list_sources_button.pack()
+
+    quit_button = tk.Button(main_menu, text="Quit", command=quit_app)
+    quit_button.pack()
+
+# Main execution
+root = tk.Tk()
+root.title("News Client")
+
+# Ask for the username
+username = simpledialog.askstring("Input", "Enter your name:")
+
+# Connect to the server
+connect_to_server()
+
+# Send username to the server
+client_socket.sendall(username.encode('utf-8'))
+
+# Receive and show greeting message from the server
+greeting = client_socket.recv(1024).decode('utf-8')
+show_message(greeting)
+
+# Set up the main menu
+create_widgets()
+
+# Run the Tkinter event loop
+root.mainloop()

@@ -52,17 +52,17 @@ Ensure that you have the required libraries and modules:
 - quit function for guit the program.
 
 2. Server scripts
-+ Main functionality:
+ Main functionality:
 - listens for incoming client connections.
 - processes client requests.
 - Sends responses back to the clients.
 
-+ Utilized packeges:
+ Utilized packeges:
 - socket for network communication.
 - threading for handling multiple clients concurrently.
 - json for encoding and decoding JSON data.
 
-+ Functions and Classes: 
+Functions and Classes: 
 - handle_client function to handles communication with a connected client. 
 - start_server to start the server and listen for incoming connections.
 
