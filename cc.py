@@ -23,7 +23,9 @@ def connect_to_server(server_ip, server_port):
         response = client.recv(4096).decode('utf-8')
         print(f"Response: {response}")
 
-        client.send('5'.encode('utf-8'))
+        x= int(input("num"))
+        client.sendall(str(x).encode('utf-8'))
+        print(client.recv(4096).decode('utf-8'))
         
         if input("Do you want to make another request? (yes/no): ").lower() != 'yes':
             client.send('quit'.encode('utf-8'))
