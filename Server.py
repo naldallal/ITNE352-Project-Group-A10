@@ -23,7 +23,6 @@ def handle_client(client_socket):
         if request =="quit":
             client_socket.close()
             print("Client",name,"disconnected")
-
             return
         articles=[]
         if os.path.exists(name+'-'+request+'-A10'):
@@ -90,7 +89,7 @@ def handle_client(client_socket):
                     } for article in articles
                 ]
             if not valid:
-                articles_list.insert(0, "Invalid argument, So returning all headlines")
+                articles_list.insert(0, {"validity": "Invalid argument, So returning all headlines"})
             client_socket.sendall(str(articles_list).encode('utf-8'))
             n=client_socket.recv(1024).decode('utf-8')
             if n=="exit":
@@ -100,9 +99,7 @@ def handle_client(client_socket):
                 print("Client",name,"disconnected")
                 return
             elif int(n)<len(articles_list) and int(n)>=0:
-                nn=int(n)
-                if valid:
-                    nn=nn-1
+                nn=int(n)-2
                 aspecified_article = {
                     "source_name": articles[nn]['source']['name'],
                     "author": articles[nn]['author'],
@@ -121,7 +118,7 @@ def handle_client(client_socket):
                     } for article in articles
                 ]
             if not valid:
-                articles_list.insert(0, "Invalid argument, So returning all sources")
+                articles_list.insert(0, {"validity": "Invalid argument, So returning all sources"})
             client_socket.sendall(str(articles_list).encode('utf-8'))
             n=client_socket.recv(1024).decode('utf-8')
             if n=="exit":
@@ -132,8 +129,6 @@ def handle_client(client_socket):
                 return
             elif int(n)<=len(articles_list) and int(n)>0:
                 nn=int(n)-1
-                if valid:
-                    nn=nn-1
                 aspecified_article = {
                     "source_name": articles[nn]['name'],
                     "country": articles[nn]['country'],
