@@ -48,27 +48,69 @@ def handle_client(client_socket):
                 elif requestList[1]=="all":
                     response = news.get_sources()
             if response: # Extract relevant details and create a list of dictionaries 
-                articles = response['articles'] 
-                articles = articles[:15]
-                fileName = name+'-'+request+'-A10'
+                if requestList[0]=="headline":
+                    articles = response['articles'] 
+                    articles = articles[:15]
+                    fileName = name+'-'+request+'-A10'
+                elif requestList[0]=="source":
+                    articles = response['sources']
+                    articles = articles[:15]
+                    fileName = name+'-'+request+'-A10'
             with open(fileName, 'w') as json_file:
                     json.dump(articles, json_file, indent=4)
-        articles_list = [ 
-                { "source_name": article['source']['name'], 
-                 "author": article['author'], 
-                 "title": article['title']
-                } for article in articles
-            ]
-        client_socket.sendall(str(articles_list).encode('utf-8'))
-        n=client_socket.recv(1024).decode('utf-8')
-        if n=="exit":
-            continue
-        elif n=="quit":
-            client_socket.close()
-            print("Client",name,"disconnected")
-            return
-        elif int(n)<len(articles_list):
-            client_socket.sendall(str(articles_list[int(n)]).encode('utf-8'))
+        if requestList[0]=="headline":
+            articles_list = [ 
+                    { "source_name": article['source']['name'], 
+                    "author": article['author'], 
+                    "title": article['title']
+                    } for article in articles
+                ]
+            client_socket.sendall(str(articles_list).encode('utf-8'))
+            n=client_socket.recv(1024).decode('utf-8')
+            if n=="exit":
+                continue
+            elif n=="quit":
+                client_socket.close()
+                print("Client",name,"disconnected")
+                return
+            elif int(n)<len(articles_list):
+                aspecified_article = {
+                    "source_name": articles[int(n)]['source']['name'],
+                    "author": articles[int(n)]['author'],
+                    "title": articles[int(n)]['title'],
+                    "URL": articles[int(n)]['url'],
+                    "description": articles[int(n)]['description'],
+                    "publish date": articles[int(n)]['publishedAt'].split("T")[0],
+                    "publish time": articles[int(n)]['publishedAt'].split("T")[1].split("Z")[0],
+                }
+                client_socket.sendall(str(aspecified_article).encode('utf-8'))
+            elif int(n)>=len(articles_list):
+                client_socket.sendall(b"Invalid article number")
+        elif requestList[0]=="source":
+            articles_list = [ 
+                    { "source_name": article['name'], 
+                    } for article in articles
+                ]
+            client_socket.sendall(str(articles_list).encode('utf-8'))
+            n=client_socket.recv(1024).decode('utf-8')
+            if n=="exit":
+                continue
+            elif n=="quit":
+                client_socket.close()
+                print("Client",name,"disconnected")
+                return
+            elif int(n)<len(articles_list):
+                aspecified_article = {
+                    "source_name": articles[int(n)]['name'],
+                    "country": articles[int(n)]['country'],
+                    "description": articles[int(n)]['description'],
+                    "URL": articles[int(n)]['url'],
+                    "category": articles[int(n)]['category'],
+                    "language": articles[int(n)]['language'],
+                }
+                client_socket.sendall(str(aspecified_article).encode('utf-8'))
+            elif int(n)>=len(articles_list):
+                client_socket.sendall(b"Invalid article number")
     client_socket.close()
     print("Client",name,"disconnected")
 
