@@ -1,0 +1,197 @@
+[
+    {
+        "source": {
+            "id": "cnn",
+            "name": "CNN"
+        },
+        "author": "Fredreka Schouten, David Wright, Alex Leeds Matthews",
+        "title": "Musk spent more than a quarter-billion dollars to elect Trump, including funding a mysterious super PAC, new filings show - CNN",
+        "description": "Elon Musk plowed at least $260 million into efforts to send Donald Trump back to the White House, new filings show \u2013 a massive infusion that makes him one of the largest single political underwriters of a presidential campaign and underscores the outsized inf\u2026",
+        "url": "https://www.cnn.com/2024/12/05/politics/elon-musk-trump-campaign-finance-filings/index.html",
+        "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/c-gettyimages-2176994193.jpg?c=16x9&q=w_800,c_fill",
+        "publishedAt": "2024-12-06T14:33:00Z",
+        "content": "Elon Musk plowed at least $260 million into efforts to send Donald Trump back to the White House, new filings show a massive infusion that makes him one of the largest single political underwriters o\u2026 [+6340 chars]"
+    },
+    {
+        "source": {
+            "id": "abc-news",
+            "name": "ABC News"
+        },
+        "author": "ABC News",
+        "title": "UnitedHealthcare CEO shooting latest: Manhunt for killer enters 3rd day - ABC News",
+        "description": null,
+        "url": "https://abcnews.go.com/US/hearts-broken-unitedhealth-group-speaks-after-ceo-brian/story?id\\\\u003d116515711",
+        "urlToImage": null,
+        "publishedAt": "2024-12-06T13:44:16Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "CNBC"
+        },
+        "author": "Jeff Cox",
+        "title": "Payrolls increased 227,000 in November, more than expected; unemployment rate at 4.2% - CNBC",
+        "description": "Nonfarm payrolls were expected to rise 214,000 in November, according to the Dow Jones consensus forecast.",
+        "url": "https://www.cnbc.com/2024/12/06/jobs-report-november-2024.html",
+        "urlToImage": "https://image.cnbcfm.com/api/v1/image/108052303-1730213239533-108052303-1729775032880-108052303-1729774885324-Unknown-2.jpg?v=1730213307&w=1920&h=1080",
+        "publishedAt": "2024-12-06T13:30:52Z",
+        "content": "Job creation in November rebounded from a near-standstill the prior month as the effects of a significant labor strike and violent storms in the Southeast receded, the Bureau of Labor Statistics repo\u2026 [+3681 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "POLITICO.eu"
+        },
+        "author": "Tim Ross, Carmen Paun, Andrei Popoviciu",
+        "title": "Romanian court cancels presidential election amid Russian influence fears - POLITICO Europe",
+        "description": "Constitutional court throws Romanian politics into turmoil, 2 days before runoff vote was due to take place.",
+        "url": "https://www.politico.eu/article/romania-court-cancels-presidential-election-runoff-tiktok-russian-influence-calin-georgescu/",
+        "urlToImage": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2024/12/06/GettyImages-2187786146-scaled.jpg",
+        "publishedAt": "2024-12-06T13:30:00Z",
+        "content": "The shock win for Georgescu in the first round on Nov. 24 triggered widespread dismay among pro-Western centrists, and sparked demonstrations in central Bucharest. On Thursday night, thousands of pro\u2026 [+1105 chars]"
+    },
+    {
+        "source": {
+            "id": "the-washington-post",
+            "name": "The Washington Post"
+        },
+        "author": "Vivian Ho",
+        "title": "Health officials grapple with deadly mystery \u2018Disease X\u2019 in Congo - The Washington Post",
+        "description": "The mysterious flu-like disease has killed dozens in the central African country of the Democratic Republic of Congo, mostly women and children, officials said.",
+        "url": "https://www.washingtonpost.com/world/2024/12/06/congo-mystery-flu-disease-x-illness/",
+        "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/3CRMRQGOI4JXNZFDXCTMTPTHVE.jpg&w=1440",
+        "publishedAt": "2024-12-06T13:24:33Z",
+        "content": "A mysterious, flu-like disease has killed dozens in the southwest region of the Democratic Republic of Congo, with women and children among the most affected, health officials said Thursday.\r\nAt leas\u2026 [+3083 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "[Removed]"
+        },
+        "author": null,
+        "title": "[Removed]",
+        "description": "[Removed]",
+        "url": "https://removed.com",
+        "urlToImage": null,
+        "publishedAt": "2024-12-06T13:03:00Z",
+        "content": "[Removed]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "[Removed]"
+        },
+        "author": null,
+        "title": "[Removed]",
+        "description": "[Removed]",
+        "url": "https://removed.com",
+        "urlToImage": null,
+        "publishedAt": "2024-12-06T12:53:00Z",
+        "content": "[Removed]"
+    },
+    {
+        "source": {
+            "id": "fortune",
+            "name": "Fortune"
+        },
+        "author": "Eleanor Pringle",
+        "title": "Warren Buffett used to gift his family $10,000 every Christmas\u2014until he noticed they were spending it too fast - Fortune",
+        "description": "Berkshire Hathaway CEO Warren Buffett used to gift $10,000 to his family for Christmas according to his former daughter-in-law Mary.",
+        "url": "https://fortune.com/2024/12/06/warren-buffett-family-christmas-gifts-cash-spending-stocks/",
+        "urlToImage": "https://fortune.com/img-assets/wp-content/uploads/2024/12/GettyImages-1141088735-e1733484499468.jpg?resize=1200,600",
+        "publishedAt": "2024-12-06T12:24:00Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "axios",
+            "name": "Axios"
+        },
+        "author": "Mike Allen",
+        "title": "Biden ponders preemptive pardons for potential Trump targets - Axios",
+        "description": "It would be a novel and risky use of the president's extraordinary constitutional power",
+        "url": "https://www.axios.com/2024/12/06/biden-preemptive-pardons-trump-milley-cheney-fauci",
+        "urlToImage": "https://images.axios.com/iyr-ntY18lO7vlxLIjG4DFsmHE8=/0x0:4445x2500/1366x768/2024/12/06/1733485718748.jpg",
+        "publishedAt": "2024-12-06T12:15:34Z",
+        "content": "President Biden lights the National Christmas on the Ellipse last evening. Photo: Kevin Dietsch/Getty Images\r\nFormer Joint Chiefs of Staff chairman Mark Milley is among those the White House is consi\u2026 [+850 chars]"
+    },
+    {
+        "source": {
+            "id": "cnn",
+            "name": "CNN"
+        },
+        "author": "Jamie Barton",
+        "title": "16-year-old sensation Gout Gout runs fourth-fastest under-18 100m of all time - CNN",
+        "description": "Australian teenage sprinting sensation Gout Gout recorded the fourth-fastest under-18 100m time in history on Friday, clocking in at 10.04 seconds at the All-Schools Athletics Championships in Queensland.",
+        "url": "https://www.cnn.com/2024/12/06/sport/gout-gout-u18-100m-spt-intl/index.html",
+        "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2188474758.jpg?c=16x9&q=w_800,c_fill",
+        "publishedAt": "2024-12-06T12:12:00Z",
+        "content": "Australian teenage sprinting sensation Gout Gout recorded the fourth-fastest under-18 100m time in history on Friday, clocking in at 10.04 seconds at the All-Schools Athletics Championships in Queens\u2026 [+1740 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "[Removed]"
+        },
+        "author": null,
+        "title": "[Removed]",
+        "description": "[Removed]",
+        "url": "https://removed.com",
+        "urlToImage": null,
+        "publishedAt": "2024-12-06T12:08:00Z",
+        "content": "[Removed]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "Formula 1"
+        },
+        "author": "F1",
+        "title": "Leclerc hit with 10-place grid drop for Abu Dhabi GP amid tight constructors' battle - Formula 1",
+        "description": "With Ferrari on a mission to overhaul McLaren's lead in the constructors' battle, Charles Leclerc is set to take a critical 10-place grid penalty at the Yas Marina Circuit after the team elected to change his energy store.",
+        "url": "https://www.formula1.com/en/latest/article/breaking-leclerc-hit-with-10-place-grid-drop-for-abu-dhabi-gp-amid-tight.70UnJby2M4OTKrz3dcfZth",
+        "urlToImage": "https://media.formula1.com/image/upload/t_16by9South/f_auto/q_auto/v1733478968/trackside-images/2024/F1_Grand_Prix_of_Abu_Dhabi___Practice/2188500305.jpg",
+        "publishedAt": "2024-12-06T11:13:31Z",
+        "content": "Charles Leclerc has been hit with a 10-place grid penalty for the Abu Dhabi Grand Prix after the Ferrari driver took on a new energy store, a bitter blow to the team's hopes in the constructors' batt\u2026 [+886 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "[Removed]"
+        },
+        "author": null,
+        "title": "[Removed]",
+        "description": "[Removed]",
+        "url": "https://removed.com",
+        "urlToImage": null,
+        "publishedAt": "2024-12-06T11:03:00Z",
+        "content": "[Removed]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "Deadline"
+        },
+        "author": "Melanie Goodfellow",
+        "title": "Cynthia Eviro Speaks Out Against Cyber-Bullying In Relation To Online Attacks Against \u2018Wicked\u2019 Co-Star Ariana Grande - Deadline",
+        "description": "Cynthia Eviro Speaks Out Against Cyber-Bullying In Response To Questions About Online Attacks On Wicked Co-Star Ariana Grande",
+        "url": "http://deadline.com/2024/12/cynthia-eviro-cyber-bullying-ariana-grande-1236196023/",
+        "urlToImage": "https://deadline.com/wp-content/uploads/2024/12/MixCollage-06-Dec-2024-11-51-AM-9331.jpg?w=1024",
+        "publishedAt": "2024-12-06T11:03:00Z",
+        "content": "Cynthia Eviro has spoken out against cyber-bullying in relation to online bullying of her Wicked co-star Ariana Grande.\r\n\u201cI think cyber bullying is quite dangerous to be honest because it\u2019s easy to b\u2026 [+1883 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "Wccftech"
+        },
+        "author": null,
+        "title": "Qualcomm Might Have Little Choice But To Give Exclusivity To TSMC For Its Upcoming Snapdragon 8 Elite Gen 2 And Snapdragon 8 Elite Gen 3 - Wccftech",
+        "description": "A tipster notes that TSMC might remain the exclusive supplier of Snapdragon 8 Elite Gen 2 and Snapdragon 8 Elite Gen 3 for Qualcomm",
+        "url": "https://wccftech.com/qualcomm-may-have-to-stick-with-tsmc-for-its-future-snapdragon-8-elite-chipsets/",
+        "urlToImage": "https://cdn.wccftech.com/wp-content/uploads/2024/12/Snapdragon-8-Elite-Gen-2.jpg",
+        "publishedAt": "2024-12-06T10:51:00Z",
+        "content": "TSMC has left all other foundries in the dust, including Samsung, and has established a fortified position where it has secured the top chipset manufacturers by providing them access to cutting-edge \u2026 [+2122 chars]"
+    }
+]
