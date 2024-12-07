@@ -1,0 +1,197 @@
+[
+    {
+        "source": {
+            "id": "the-wall-street-journal",
+            "name": "The Wall Street Journal"
+        },
+        "author": "The Wall Street Journal",
+        "title": "Jobs Report Today: November Payrolls Data Due - The Wall Street Journal",
+        "description": null,
+        "url": "https://www.wsj.com/livecoverage/jobs-report-stock-market-today-dow-nasdaq-sp500-12-06-2024",
+        "urlToImage": null,
+        "publishedAt": "2024-12-06T11:46:00Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "CNBC"
+        },
+        "author": "Lisa Kailai Han, Pia Singh",
+        "title": "Stock futures are little changed ahead of key jobs report: Live updates - CNBC",
+        "description": "Stock futures were near the flatline Friday as investors awaited key payrolls data.",
+        "url": "https://www.cnbc.com/2024/12/05/stock-market-today-live-updates.html",
+        "urlToImage": "https://image.cnbcfm.com/api/v1/image/108067040-17322951862024-11-22t154623z_2133700936_rc2eaba73513_rtrmadp_0_usa-stocks.jpeg?v=1732295257&w=1920&h=1080",
+        "publishedAt": "2024-12-06T10:46:00Z",
+        "content": "China stocks gained Friday ahead of a key policy meeting reportedly set for next week, while other Asia markets tracked Wall Street declines overnight.\r\nHong Kong's\u00a0Hang Seng index was up 1.5% in its\u2026 [+1023 chars]"
+    },
+    {
+        "source": {
+            "id": "the-washington-post",
+            "name": "The Washington Post"
+        },
+        "author": "Jiselle Lee",
+        "title": "Anthem Blue Cross Blue Shield reverses plan to limit anesthesia coverage - The Washington Post",
+        "description": "Connecticut\u2019s attorney general said the change would have been \u201cterrible\u201d because neither patients nor anesthesiologists can control the length of a surgery.",
+        "url": "https://www.washingtonpost.com/health/2024/12/05/anesthesia-anthem-blue-cross-blue-shield-insurance/",
+        "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/7DWRMHFCTUI6XMYUF2MTXWB6GE.jpg&w=1440",
+        "publishedAt": "2024-12-06T04:56:56Z",
+        "content": "One of the countrys largest health insurers is facing backlash from doctors and government officials over its decision to no longer pay for anesthesia care if a surgery or procedure goes beyond a tim\u2026 [+260 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "New York Post"
+        },
+        "author": "Fox News",
+        "title": "Golf influencer Paige Spiranac takes dig at 'Hawk Tuah Girl' Haliey Welch amid memecoin controversy - New York Post ",
+        "description": "Golf influencer\u00a0Paige Spiranac learned a lesson today: Stay far away from making a memecoin.",
+        "url": "https://nypost.com/2024/12/05/sports/golf-influencer-paige-spiranac-takes-dig-at-hawk-tuah-girl-haliey-welch-amid-memecoin-controversy/",
+        "urlToImage": "https://nypost.com/wp-content/uploads/sites/2/2024/12/94832117.jpg?quality=75&strip=all&w=1024",
+        "publishedAt": "2024-12-06T04:38:00Z",
+        "content": "Golf influencer\u00a0Paige Spiranac learned a lesson today: Stay far away from making a memecoin.\r\nHaliey Welch, better known on social media as \u201cHawk Tuah Girl,\u201d has capitalized on her recent fame in num\u2026 [+1595 chars]"
+    },
+    {
+        "source": {
+            "id": "axios",
+            "name": "Axios"
+        },
+        "author": "Axios",
+        "title": "Trump names \"All In\" host and Musk pal David O. Sacks as AI, crypto czar - Axios",
+        "description": "Sacks will have a powerful hand in setting the country's technology policy.",
+        "url": "https://www.axios.com/2024/12/06/david-sacks-musk-trump-ai-crypto-czar",
+        "urlToImage": "https://images.axios.com/9fJYJuRFTGyyXcsV5PgrZYKhZls=/0x131:3600x2156/1366x768/2024/12/06/1733447858526.jpg",
+        "publishedAt": "2024-12-06T04:25:35Z",
+        "content": "President-elect Trump named investor, Elon Musk ally and podcaster David Sacks to the new role of \"AI &amp; crypto czar.\"\r\nWhy it matters: Sacks, an experienced but controversial tech executive, will\u2026 [+1855 chars]"
+    },
+    {
+        "source": {
+            "id": "reuters",
+            "name": "Reuters"
+        },
+        "author": "Stella Qiu",
+        "title": "Asian shares slip on South Korea risk, dollar on guard ahead of payrolls - Reuters",
+        "description": "Most Asian shares fell on Friday as political ructions in South Korea weighed on sentiment, while dollar bulls waited anxiously to see if U.S. payrolls challenged or cemented expectations of a rate cut this month.",
+        "url": "https://www.reuters.com/markets/global-markets-wrapup-1-2024-12-06/",
+        "urlToImage": "https://www.reuters.com/resizer/v2/NODRH74NEFLYVJ4LWGHZHHBIFQ.jpg?auth=46215c92cbbb8086dd96ccae3a1837b814fce4ad83ed11d079b51d802a3f010f&height=1005&width=1920&quality=80&smart=true",
+        "publishedAt": "2024-12-06T02:18:00Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "Turn to 10"
+        },
+        "author": "JESSICA A. BOTELHO | The National News Desk",
+        "title": "'Do not eat them': More cucumbers -- and foods made with them -- recalled - Fox Baltimore",
+        "description": "Even more companies announced recalls of whole fresh cucumbers or foods made with them after a salmonella outbreak impacted multiple states last week.",
+        "url": "https://turnto10.com/news/nation-world/do-not-eat-them-more-cucumbers-and-foods-made-with-them-recalled-cdc-fda-health-salmonella-outbreak-sushi-salads-wraps-vegetables-trays-platters-eating-dining-lunch-dinner-meal-groceries-produce-mexico-farms",
+        "urlToImage": "https://foxbaltimore.com/resources/media/e517f6c3-8591-4876-b07b-bae65e22eab5-large16x9_Cucumbers.jpeg",
+        "publishedAt": "2024-12-06T00:10:17Z",
+        "content": "WASHINGTON (TNND) Several additional companies on Thursday announced recalls of whole fresh cucumbers -- or foods made with them -- after a salmonella outbreak impacted multiple states last week, acc\u2026 [+2375 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "TheStreet"
+        },
+        "author": "Martin Baccardax",
+        "title": "Wall Street analysts race to reprice S&P 500 targets as bull market roars on - TheStreet",
+        "description": "U.S. stocks are having their best back-to-back years since 1998. Wall Street sees more gains on the way.",
+        "url": "https://www.thestreet.com/investing/wall-street-analysts-race-to-reprice-s-p-500-targets-as-bull-market-roars-on",
+        "urlToImage": "https://www.thestreet.com/.image/ar_1.91%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_1200/MjA3NTEzODc5NDczODI1MDUz/trading-at-the-nyse-as-sp-500-hits-5500-after-encouraging-economic-data.jpg",
+        "publishedAt": "2024-12-06T00:03:00Z",
+        "content": "U.S. stocks are on pace for one of their best post-election rallies in a generation, driving all three major benchmarks to fresh all-time highs and setting up a host of Wall Street price target chang\u2026 [+3800 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "Barron's"
+        },
+        "author": "Barron's",
+        "title": "HP Enterprise Earnings Beat Estimates. It\u2019s \u2018Doing AI \u2018In a Disciplined Way.\u2019 - Barron's",
+        "description": null,
+        "url": "https://www.barrons.com/articles/hp-enterprise-hpe-stock-price-earnings-74ea7a90",
+        "urlToImage": null,
+        "publishedAt": "2024-12-05T23:55:00Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "Post Magazine"
+        },
+        "author": null,
+        "title": "El Salvador\u2019s President Bukele triumphant after his bet on bitcoin comes true - South China Morning Post",
+        "description": "As bitcoin surpassed US$100,000 for first time, value of El Salvador government\u2019s reported investment now stands at more than US$600 million.",
+        "url": "https://www.scmp.com/news/world/americas/article/3289583/el-salvadors-president-nayib-bukele-triumphant-after-his-bet-bitcoin-comes-true",
+        "urlToImage": "https://cdn.i-scmp.com/sites/default/files/styles/og_image_scmp_generic/public/d8/images/canvas/2024/12/06/3561fc0e-fed3-4e9f-a381-693fe3a0d9ee_c09da9ad.jpg?itok=vM2I0vUo&v=1733440780",
+        "publishedAt": "2024-12-05T23:20:35Z",
+        "content": "As bitcoin reached historic highs, surpassing US$100,000 for the first time, El Salvadors President Nayib Bukele was triumphant on Thursday about his big bet on the cryptocurrency.\r\nThe adoption of b\u2026 [+1345 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "Investopedia"
+        },
+        "author": "Andrew Kessel",
+        "title": "Crypto Stocks Swing Wildly After Bitcoin Tops $100,000 - Investopedia",
+        "description": "Shares of cryptocurrency-related companies including MicroStrategy and Coinbase jumped after the price of bitcoin surpassed $100,000 for the first time.",
+        "url": "https://www.investopedia.com/crypto-stocks-swing-after-bitcoin-tops-usd100-000-coinbase-microstrategy-8756610",
+        "urlToImage": "https://www.investopedia.com/thmb/8_Y-OHoVSrb6PN9juzlJyaATMlw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-2184362763-700f0c7fff0e4ce88fbeba64f52d0d82.jpg",
+        "publishedAt": "2024-12-05T22:59:44Z",
+        "content": "<ul><li>Cryptocurrency companies saw their shares swing after the price of Bitcoin climbed above $100,000 late Wednesday.</li><li>The rally was spurred in part by President-elect Donald Trump's pick \u2026 [+1388 chars]"
+    },
+    {
+        "source": {
+            "id": "usa-today",
+            "name": "USA Today"
+        },
+        "author": "Gabe Hauari",
+        "title": "Chipotle raises menu prices in response to inflation, company says - USA TODAY",
+        "description": "Chipotle has raised its menu prices by about 2% in response to inflation, the company confirmed to USA TODAY Thursday.",
+        "url": "https://www.usatoday.com/story/money/food/2024/12/05/chipotle-menu-prices-increase/76797403007/",
+        "urlToImage": "https://www.usatoday.com/gcdn/authoring/authoring-images/2024/12/05/USAT/76799033007-usatsi-24446992.jpg?crop=3999,2250,x0,y208&width=3200&height=1801&format=pjpg&auto=webp",
+        "publishedAt": "2024-12-05T22:16:56Z",
+        "content": "If your Chipotle order seems like it has gotten slightly more expensive, it is not your imagination.\r\nThe fast casual Mexican chain said it has raised its menu prices by 2% as it deals with the impac\u2026 [+1716 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "Investopedia"
+        },
+        "author": "Terry Lane",
+        "title": "Uber and Lyft Stocks Plunge As Google's Waymo Brings Driverless Taxis to Miami - Investopedia",
+        "description": "Google said it is bringing its Waymo self-driving taxis to Miami, news that sent Uber and Lyft stock prices lower as investors weighed the risk to their services.",
+        "url": "https://www.investopedia.com/uber-and-lyft-stocks-fall-as-google-waymo-brings-driverless-taxis-to-miami-8756774",
+        "urlToImage": "https://www.investopedia.com/thmb/KY4NAZBaRA6NOUWGzboeSx3_tUQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-938757682-9aa99a5f0d604eed8604aa489f4c6561.jpg",
+        "publishedAt": "2024-12-05T21:49:19Z",
+        "content": "<ul><li>Googles Waymo said it would train its self-driving taxis on Miami streets in 2025 as it prepares to offer service to customers in 2026.</li><li>Shares of ride-hailing providers Uber and Lyft \u2026 [+1628 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "Cointelegraph"
+        },
+        "author": "Turner Wright",
+        "title": "Crypto industry execs approve of Trump\u2019s pick to lead SEC - Cointelegraph",
+        "description": "If nominated by Donald Trump and confirmed by the US Senate, Paul Atkins could serve as SEC chair until 2030.",
+        "url": "https://cointelegraph.com/news/crypto-execs-donald-trump-sec-paul-atkins",
+        "urlToImage": "https://images.cointelegraph.com/cdn-cgi/image/format=auto,onerror=redirect,quality=90,width=1200/https://s3.cointelegraph.com/uploads/2024-12/01939879-8519-75d8-a1bc-3d32896764fe",
+        "publishedAt": "2024-12-05T21:46:58Z",
+        "content": "Many executives representing high-profile cryptocurrency companies in the United States have weighed in on President-elect Donald Trumps pick for the next chair of the Securities and Exchange Commiss\u2026 [+2678 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "Financial Times"
+        },
+        "author": "Myles McCormick",
+        "title": "Chevron cuts capital budget for first time since Covid-19 oil crash - Financial Times",
+        "description": "Supermajor\u2019s move comes despite Donald Trump\u2019s pledge to unleash new US fossil fuel surge",
+        "url": "https://www.ft.com/content/54c38547-df13-43c6-a6ee-16108b4943e4",
+        "urlToImage": "https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F8bff9e03-8155-40ff-8454-6cfdf874a518.jpg?source=next-barrier-page",
+        "publishedAt": "2024-12-05T21:16:27Z",
+        "content": "The new FT Digital Edition: todays FT, cover to cover on any device. This subscription does not include access to ft.com or the FT App.\r\n<ul><li></li>FT Digital Edition<li></li>Global news &amp; anal\u2026 [+86 chars]"
+    }
+]
