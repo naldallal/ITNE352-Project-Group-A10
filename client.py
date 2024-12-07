@@ -18,8 +18,7 @@ connect_to_server()
 # Main execution
 root = tk.Tk()
 root.title("News Client")
-root.geometry("470x340" )
-
+root.geometry("500x600")
 
 # Ask for the username
 username = simpledialog.askstring("Input", "Enter your name:")
@@ -49,11 +48,22 @@ def create_widgets():
     list_sources_button = tk.Button(main_frame, text="List of Sources", command=list_sources, font="Calibre 13 bold", padx=10, pady=10)
     list_sources_button.pack(pady=10)
 
-    quit_button = tk.Button(main_menu, text="Quit", command=quit_app , font="Calibre 13 bold" , padx="10", pady="13")
-    quit_button.pack(pady="13")
+    quit_button = tk.Button(main_frame, text="Quit", command=quit_app, font="Calibre 13 bold", padx=10, pady=10)
+    quit_button.pack(pady=10)
 
+# Function to update the main frame with new content
+def update_frame(content_func):
+    for widget in main_frame.winfo_children():
+        widget.destroy()
+    content_func()
 
-# Handle opening a window for searching headlines
+# Function to update the main frame with new content
+def update_frame(content_func):
+    for widget in main_frame.winfo_children():
+        widget.destroy()
+    content_func()
+
+# searching headlines
 def search_headlines():
     update_frame(search_headlines_content)
 
@@ -155,26 +165,24 @@ def list_all_sources():
 
 # Handle showing results
 def show_results(response):
-    results = response.split('\n')
-    results_window = tk.Toplevel(root)
-    results_window.title("Results")
+    for widget in main_frame.winfo_children():
+        widget.destroy()
+    
+    response_text = tk.Text(main_frame, height=15, width=50)
+    response_text.pack()
+    response_text.insert(tk.END, f"{response}\n")
 
-    num_topic = simpledialog.askfloat("Input", "Select number of topics you are interested in for more details:")
-
-    # Convert the float to an integer
-    num_topic = int(num_topic)
-
-    client_socket.sendall(str(num_topic).encode())
-    response = client_socket.recv(4096).decode('utf-8')
-    show_message(response)
+    article_number = simpledialog.askstring("Input", "Enter the article number for details (or 'exit' to go back):")
+    if article_number.lower() != 'exit':
+        # Clear the response before showing the article details
+        response_text.delete(1.0, tk.END)  
+        client_socket.sendall(article_number.encode('utf-8'))
+        article_details = client_socket.recv(4096).decode('utf-8')
+        response_text.insert(tk.END, f"\nArticle Details: {article_details}\n")
 
     back_button = tk.Button(main_frame, text="Back to Main Menu", command=create_widgets, font="Calibre 13 bold", padx=10, pady=10)
     back_button.pack()
 
-
-# Display message in a message box
-def show_message(message):
-    messagebox.showinfo("Response", message)
 
 # Handle quitting the app
 def quit_app():
