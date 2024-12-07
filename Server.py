@@ -15,7 +15,7 @@ def handle_client(client_socket):
     client_socket.sendall(b"Hello, " + name.encode('utf-8'))
     while True:
         news = NewsApiClient(api_key='d9968ffc1e7f4b02b859492ab750f911')
-        request = client_socket.recv(1024).decode('utf-8')
+        request = client_socket.recv(1024).decode('utf-8').lower()
         if request =="quit":
             client_socket.close()
             print("Client",name,"disconnected")
