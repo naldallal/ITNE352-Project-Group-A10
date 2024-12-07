@@ -73,6 +73,7 @@ Functions and Classes:
 I would like to express to eveyone who contributed to the development of this application:
 - Mentor for his invaluable guidance and support throughout the project.
 - NewsAPI.org for offering a robust API that enabled real-time news integration, significantly enhancing the application's functionality.
+- Al-Munthir Saffan youtube channel for good explaination about how GUI work.
 
 
 ## conclution
