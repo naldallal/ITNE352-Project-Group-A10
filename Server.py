@@ -120,9 +120,7 @@ def handle_client(client_socket):
                 articles_list.insert(0, {"validity": "Invalid argument, So returning all sources"})
             client_socket.sendall(str(articles_list).encode('utf-8'))
             n=client_socket.recv(1024).decode('utf-8')
-            if n=="exit":
-                continue
-            elif n=="quit":
+            if n=="quit":
                 client_socket.close()
                 print("Client",name,"disconnected")
                 return
