@@ -1,6 +1,7 @@
 import socket
 import tkinter as tk
 from tkinter import messagebox, simpledialog
+import ast
 
 # Server IP & Port
 SERVER_IP = '127.0.0.1'
@@ -199,7 +200,7 @@ def show_results(response):
     response_text.insert(tk.END, "Results:\n\n")
 
     # Assuming `response` is a string representation of a list of dictionaries
-    import ast
+    
     try:
         data = ast.literal_eval(response)
         print("=============")  # Debug print
@@ -230,6 +231,7 @@ def show_results(response):
         client_socket.sendall(article_number.encode('utf-8'))
         article_details = client_socket.recv(4096).decode('utf-8')
         response_text.insert(tk.END, f"\nArticle Details: {article_details}\n")
+
 
     back_button = tk.Button(main_frame, text="Back to Main Menu", command=create_widgets, font="Calibre 13 bold", padx=10, pady=10, bg='#f5f5dc', fg='#8b4513', activebackground='#d2b48c')
     back_button.pack(pady=10)
