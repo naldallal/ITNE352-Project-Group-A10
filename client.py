@@ -186,11 +186,62 @@ def list_all_sources():
 
 
 # Handle showing results
+# def show_results(response):
+#     print(response)
+#     print(len(response))
+#     if len(response)==16:
+#         response=response[1:]
+#     for widget in main_frame.winfo_children():
+#         widget.destroy()
+    
+#     response_text = tk.Text(main_frame, height=20, width=60, bg='#f5f5dc', fg='#8b4513')
+#     response_text.pack(pady=10)
+
+#     response_text.insert(tk.END, "Results:\n\n")
+
+#     # Assuming `response` is a string representation of a list of dictionaries
+    
+#     try:
+#         data = ast.literal_eval(response)
+#         print("=============")  # Debug print
+#         type(data)
+
+#           # Convert string to list of dictionaries
+#         print("Data loaded successfully")  # Debug print
+#     except (ValueError, SyntaxError) as e:
+#         print(f"Error decoding string: {e}")  # Debug print
+#         response_text.insert(tk.END, f"Error decoding response: {e}")
+#         return
+#     # print("============="+type(data))  # Debug print
+#     if data: 
+#         validity_check = data[0] 
+#         if 'validity' in validity_check: 
+#             response_text.insert(tk.END, f"{validity_check['validity']}\n") 
+#             data = data[1:] # Skip the first dictionary
+
+#     for idx, item in enumerate(data):
+#         response_text.insert(tk.END, f"{idx + 1}. ")
+#         for key, value in item.items():
+#             response_text.insert(tk.END, f"{key}: {value}\n")
+#         response_text.insert(tk.END, "\n")
+
+#     article_number = simpledialog.askstring("Input", "Enter the article number for details (or 'exit' to go back):")
+#     if article_number.lower() != 'exit':
+#         response_text.delete(1.0, tk.END)  # Clear the response before showing the article details
+#         client_socket.sendall(article_number.encode('utf-8'))
+#         article_details = client_socket.recv(4096).decode('utf-8')
+#         response_text.insert(tk.END, f"\nArticle Details: {article_details}\n")
+
+
+#     back_button = tk.Button(main_frame, text="Back to Main Menu", command=create_widgets, font="Calibre 13 bold", padx=10, pady=10, bg='#f5f5dc', fg='#8b4513', activebackground='#d2b48c')
+#     back_button.pack(pady=10)
+
+# Handle showing results
 def show_results(response):
     print(response)
     print(len(response))
-    if len(response)==16:
-        response=response[1:]
+    if len(response) == 16:
+        response = response[1:]
     for widget in main_frame.winfo_children():
         widget.destroy()
     
@@ -200,24 +251,19 @@ def show_results(response):
     response_text.insert(tk.END, "Results:\n\n")
 
     # Assuming `response` is a string representation of a list of dictionaries
-    
     try:
         data = ast.literal_eval(response)
-        print("=============")  # Debug print
-        type(data)
-
-          # Convert string to list of dictionaries
         print("Data loaded successfully")  # Debug print
     except (ValueError, SyntaxError) as e:
         print(f"Error decoding string: {e}")  # Debug print
         response_text.insert(tk.END, f"Error decoding response: {e}")
         return
-    # print("============="+type(data))  # Debug print
+
     if data: 
         validity_check = data[0] 
         if 'validity' in validity_check: 
             response_text.insert(tk.END, f"{validity_check['validity']}\n") 
-            data = data[1:] # Skip the first dictionary
+            data = data[1:]  # Skip the first dictionary
 
     for idx, item in enumerate(data):
         response_text.insert(tk.END, f"{idx + 1}. ")
@@ -225,17 +271,34 @@ def show_results(response):
             response_text.insert(tk.END, f"{key}: {value}\n")
         response_text.insert(tk.END, "\n")
 
-    article_number = simpledialog.askstring("Input", "Enter the article number for details (or 'exit' to go back):")
-    if article_number.lower() != 'exit':
-        response_text.delete(1.0, tk.END)  # Clear the response before showing the article details
-        client_socket.sendall(article_number.encode('utf-8'))
-        article_details = client_socket.recv(4096).decode('utf-8')
-        response_text.insert(tk.END, f"\nArticle Details: {article_details}\n")
+    # Custom dialog box for entering article number
+    def get_article_number():
+        dialog = tk.Toplevel(root)
+        dialog.title("Enter Article Number")
+        dialog.geometry("300x150")
 
+        label = tk.Label(dialog, text="Enter the article number for details:")
+        label.pack(pady=10)
+
+        entry = tk.Entry(dialog)
+        entry.pack(pady=10)
+
+        def submit():
+            article_number = entry.get()
+            dialog.destroy()
+            #if article_number.lower() != 'exit':
+            response_text.delete(1.0, tk.END)  # Clear the response before showing the article details
+            client_socket.sendall(article_number.encode('utf-8'))
+            article_details = client_socket.recv(4096).decode('utf-8')
+            response_text.insert(tk.END, f"\nArticle Details: {article_details}\n")
+
+        submit_button = tk.Button(dialog, text="Submit", command=submit)
+        submit_button.pack(pady=10)
+
+    get_article_number()
 
     back_button = tk.Button(main_frame, text="Back to Main Menu", command=create_widgets, font="Calibre 13 bold", padx=10, pady=10, bg='#f5f5dc', fg='#8b4513', activebackground='#d2b48c')
     back_button.pack(pady=10)
-
 
 
 # Handle quitting the app

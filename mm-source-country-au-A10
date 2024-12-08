@@ -1,0 +1,38 @@
+[
+    {
+        "id": "abc-news-au",
+        "name": "ABC News (AU)",
+        "description": "Australia's most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.",
+        "url": "https://www.abc.net.au/news",
+        "category": "general",
+        "language": "en",
+        "country": "au"
+    },
+    {
+        "id": "australian-financial-review",
+        "name": "Australian Financial Review",
+        "description": "The Australian Financial Review reports the latest news from business, finance, investment and politics, updated in real time. It has a reputation for independent, award-winning journalism and is essential reading for the business and investor community.",
+        "url": "http://www.afr.com",
+        "category": "business",
+        "language": "en",
+        "country": "au"
+    },
+    {
+        "id": "google-news-au",
+        "name": "Google News (Australia)",
+        "description": "Comprehensive, up-to-date Australia news coverage, aggregated from sources all over the world by Google News.",
+        "url": "https://news.google.com",
+        "category": "general",
+        "language": "en",
+        "country": "au"
+    },
+    {
+        "id": "news-com-au",
+        "name": "News.com.au",
+        "description": "We say what people are thinking and cover the issues that get people talking balancing Australian and global moments \u2014 from politics to pop culture.",
+        "url": "http://www.news.com.au",
+        "category": "general",
+        "language": "en",
+        "country": "au"
+    }
+]
