@@ -1,5 +1,6 @@
+import socket
 import tkinter as tk
-from tkinter import simpledialog
+from tkinter import simpledialog , messagebox
 import ast
 
 class CustomDialog(simpledialog.Dialog):
@@ -24,9 +25,9 @@ class CustomDialog(simpledialog.Dialog):
     def apply(self):
         self.result = self.entry.get()
 
-import socket
-import tkinter as tk
-from tkinter import messagebox
+
+
+
 
 # Server IP & Port
 SERVER_IP = '127.0.0.1'
