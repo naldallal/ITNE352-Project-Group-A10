@@ -242,6 +242,7 @@ def show_results(response):
             article_details = client_socket.recv(4096).decode('utf-8')
             response_text.insert(tk.END, f"\nArticle Details: {article_details}\n")
 
+
         submit_button = tk.Button(dialog, text="Submit", command=submit)
         submit_button.pack(pady=10)
 
