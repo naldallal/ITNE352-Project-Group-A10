@@ -92,13 +92,13 @@ def handle_client(client_socket):
                 articles_list.insert(0, {"validity": "Invalid argument, So returning all headlines"})
             client_socket.sendall(str(articles_list).encode('utf-8'))
             n=client_socket.recv(1024).decode('utf-8')
-            if n=="exit":
+            if n=="exit" :
                 continue
             elif n=="quit":
                 client_socket.close()
                 print("Client",name,"disconnected")
                 return
-            elif int(n)<len(articles_list) and int(n)>=0:
+            elif n.isdigit() and int(n)<len(articles_list) and int(n)>=0:
                 nn=int(n)-2
                 aspecified_article = {
                     "source_name": articles[nn]['source']['name'],
@@ -110,7 +110,7 @@ def handle_client(client_socket):
                     "publish time": articles[nn]['publishedAt'].split("T")[1].split("Z")[0],
                 }
                 client_socket.sendall(str(aspecified_article).encode('utf-8'))
-            elif int(n)>=len(articles_list) or  int(n)<0:
+            elif not n.isdigit() or int(n)>=len(articles_list) or  int(n)<0:
                 client_socket.sendall(b"Invalid article number")
         elif requestList[0]=="source":
             articles_list = [ 
@@ -127,7 +127,7 @@ def handle_client(client_socket):
                 client_socket.close()
                 print("Client",name,"disconnected")
                 return
-            elif int(n)<=len(articles_list) and int(n)>0:
+            elif n.isdigit() and int(n)<=len(articles_list) and int(n)>0:
                 nn=int(n)-1
                 aspecified_article = {
                     "source_name": articles[nn]['name'],
@@ -138,7 +138,7 @@ def handle_client(client_socket):
                     "language": articles[nn]['language'],
                 }
                 client_socket.sendall(str(aspecified_article).encode('utf-8'))
-            elif int(n)>len(articles_list) or int(n)<=0:
+            elif not n.isdigit() or int(n)>len(articles_list) or int(n)<=0:
                 client_socket.sendall(b"Invalid article number")
     client_socket.close()
     print("Client",name,"disconnected")

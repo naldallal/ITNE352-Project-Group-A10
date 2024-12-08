@@ -1,0 +1,197 @@
+[
+    {
+        "source": {
+            "id": null,
+            "name": "[Removed]"
+        },
+        "author": null,
+        "title": "[Removed]",
+        "description": "[Removed]",
+        "url": "https://removed.com",
+        "urlToImage": null,
+        "publishedAt": "2024-12-06T20:18:00Z",
+        "content": "[Removed]"
+    },
+    {
+        "source": {
+            "id": "the-washington-post",
+            "name": "The Washington Post"
+        },
+        "author": "Daniel Gilbert, Shannon Najmabadi",
+        "title": "Targeted killing of UnitedHealth executive sends a chill through C suites - The Washington Post",
+        "description": "Executives in the internet age have faced rising risks, as online databases make it possible to track corporate planes and identify home addresses.",
+        "url": "https://www.washingtonpost.com/business/2024/12/06/unitedhealth-brian-thompson-shooting-executive-security-measures/",
+        "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/SBZLQ6VATQXAE5L52MJ2MXUHZE.jpg&w=1440",
+        "publishedAt": "2024-12-06T19:59:18Z",
+        "content": "The targeted killing of UnitedHealthcare CEO Brian Thompson,a powerful executive walking alone on a New York sidewalk, is forcing a broad examination of security practices by corporations whose leade\u2026 [+8534 chars]"
+    },
+    {
+        "source": {
+            "id": "the-washington-post",
+            "name": "The Washington Post"
+        },
+        "author": "Susan Svrluga",
+        "title": "Naval Academy can consider race in admissions, federal judge rules - The Washington Post",
+        "description": "The decision, citing national security, comes after the Supreme Court rejected the use of affirmative action in college admissions.",
+        "url": "https://www.washingtonpost.com/education/2024/12/06/naval-academy-race-conscious-admissions-affirmative-action/",
+        "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/O642RXV7F4I63E2QPRP4ZVMYVU_size-normalized.jpg&w=1440",
+        "publishedAt": "2024-12-06T19:58:38Z",
+        "content": "The U.S. Naval Academy can continue to use race-conscious admissions policies, a federal judge ruledFriday in a closely watched case that followed last years Supreme Court decision rejecting the use \u2026 [+3820 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "New York Post"
+        },
+        "author": "Tracy Swartz",
+        "title": "US to drop to 66th place in life expectancy rankings \u2014 and it\u2019s even worse for \u2018good health\u2019 years - New York Post ",
+        "description": "Researchers say life expectancy gains will stall because of a looming \u201cpublic health crisis of unimaginable scale.\u201d",
+        "url": "https://nypost.com/2024/12/06/lifestyle/us-expected-to-drop-to-66th-place-in-life-expectancy-rankings/",
+        "urlToImage": "https://nypost.com/wp-content/uploads/sites/2/2024/12/94875177.jpg?quality=75&strip=all&w=1024",
+        "publishedAt": "2024-12-06T19:15:00Z",
+        "content": "Life expectancy in the US already falls behind many other developed countries, putting us in 49th place in global rankings in 2022 but a new report says we\u2019ll drop even further to 66th place in 2050.\u2026 [+4131 chars]"
+    },
+    {
+        "source": {
+            "id": "cnn",
+            "name": "CNN"
+        },
+        "author": "Elizabeth Wagmeister",
+        "title": "Jamie Foxx reveals details of his \u2018near-death experience\u2019 in new Netflix special - CNN",
+        "description": "Jamie Foxx told a packed audience at a taping for his Netflix special that he had a \u201cnear-death experience\u201d and was in a weeks-long coma during his mystery health crisis that had him hospitalized in 2023.",
+        "url": "https://www.cnn.com/2024/12/06/entertainment/jamie-foxx-near-death-experience-netflix-special/index.html",
+        "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/jfss-unit-2146r-c-1.jpg?c=16x9&q=w_800,c_fill",
+        "publishedAt": "2024-12-06T19:12:00Z",
+        "content": "Jamie Foxx told a packed audience at a taping for his Netflix special that he had a near-death experience and was in a weeks-long coma during his mystery health crisis that had him hospitalized in 20\u2026 [+4040 chars]"
+    },
+    {
+        "source": {
+            "id": "associated-press",
+            "name": "Associated Press"
+        },
+        "author": "JOHN LEICESTER",
+        "title": "Notre Dame's reopening will begin with an archbishop's knock on the doors. Here's what comes next - The Associated Press",
+        "description": "The reopening this weekend of Notre Dame is a succession of ceremonies to breathe life back into the iconic cathedral and celebrate the recovery from its devastating fire in 2019. High points will be the ceremonial reopening of the cathedral\u2019s massive doors, \u2026",
+        "url": "https://apnews.com/article/france-paris-notre-dame-trump-macron-religion-fire-e76aee3fdb9d391943e7955424d330cc",
+        "urlToImage": "https://dims.apnews.com/dims4/default/8b51ef1/2147483647/strip/true/crop/6000x3375+0+312/resize/1440x810!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F74%2F31%2F501a4b75ed50eaa0683090460987%2Fb3ce3fbf2ead4359bed52e1e2786b0b2",
+        "publishedAt": "2024-12-06T18:13:00Z",
+        "content": "PARIS (AP) The reopening this weekend of Notre Dame is a succession of ceremonies to breathe life back into the iconic cathedral and celebrate the recovery from its devastating fire in 2019.\r\nForecas\u2026 [+6348 chars]"
+    },
+    {
+        "source": {
+            "id": "the-verge",
+            "name": "The Verge"
+        },
+        "author": "Emma Roth",
+        "title": "Apple\u2019s in-house 5G modem plans are just getting started with next year\u2019s iPhone SE - The Verge",
+        "description": "Apple is getting ready to put its first in-house modem in next year\u2019s iPhone SE before bringing it to entry-level iPads and a thinner iPhone, according to Bloomberg.",
+        "url": "https://www.theverge.com/2024/12/6/24314898/apple-5g-modem-debut-iphone-se-2025",
+        "urlToImage": "https://cdn.vox-cdn.com/thumbor/M-T69u_o5DDWlQUiFPuJioXyLKw=/0x0:2040x1360/1200x628/filters:focal(1198x719:1199x720)/cdn.vox-cdn.com/uploads/chorus_asset/file/23307882/ajohnson_221103_5070_0002.jpg",
+        "publishedAt": "2024-12-06T18:12:21Z",
+        "content": "Apples in-house 5G modem plans are just getting started with next years iPhone SE\r\nApples in-house 5G modem plans are just getting started with next years iPhone SE\r\n / According to Bloomberg, Apple \u2026 [+1604 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "Android Central"
+        },
+        "author": "Nickolas Diaz",
+        "title": "Google's December security patch for Pixels fixes audio and camera issues - Android Central",
+        "description": "This patch cleans up a few bugs so your feature drop arrives interrupted.",
+        "url": "https://www.androidcentral.com/apps-software/google-december-2024-security-pixel-update",
+        "urlToImage": "https://cdn.mos.cms.futurecdn.net/j8Xcuz9p4J2Q4W6CLi9tG8-1200-80.jpg",
+        "publishedAt": "2024-12-06T18:10:03Z",
+        "content": "What you need to know\r\n<ul><li>Google detailed the rollout of its December 2024 security update for its Pixel lineup.</li><li>The patch includes even more Bluetooth fixes alongside fixes for display \u2026 [+3744 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "CBS Sports"
+        },
+        "author": "",
+        "title": "Lions' Jared Goff becomes third QB in NFL history to pull off this rare feat during win over Packers - CBS Sports",
+        "description": "The Lions QB pulled off a feat that Patrick Mahomes, Tom Brady and Peyton Manning have never accomplished",
+        "url": "https://www.cbssports.com/nfl/news/lions-jared-goff-becomes-third-qb-in-nfl-history-to-pull-off-this-rare-feat-during-win-over-packers/",
+        "urlToImage": "https://sportshub.cbsistatic.com/i/r/2024/12/02/da2dcd0c-2b77-4ccb-abb2-436a5f66a9f8/thumbnail/1200x675/303237084a4bb8a4334ee2c2141d0561/jared-goff-lions.jpg",
+        "publishedAt": "2024-12-06T17:55:23Z",
+        "content": "With their win over the Green Bay Packers on Thursday night, the Detroit Lions clinched a playoff berth and Jared Goff got to make some NFL history in the process.\u00a0\r\nDuring Detroit's 34-31 win, Goff \u2026 [+2070 chars]"
+    },
+    {
+        "source": {
+            "id": "abc-news",
+            "name": "ABC News"
+        },
+        "author": "ABC News",
+        "title": "Daniel Penny jury deadlocked on manslaughter charge in subway chokehold case - ABC News",
+        "description": null,
+        "url": "https://abcnews.go.com/US/daniel-penny-jury-trial-vote-jordan-neely/story?id\\\\u003d116404879",
+        "urlToImage": null,
+        "publishedAt": "2024-12-06T17:48:45Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "fortune",
+            "name": "Fortune"
+        },
+        "author": "Jane Thier",
+        "title": "Elon Musk is planning a rude awakening for 94% of federal workers by monitoring their every move - Fortune",
+        "description": "Trump\u2019s co-heads of the new Department of Government Efficiency\u2014Musk and Vivek Ramaswamy\u2014are targeting remote work.",
+        "url": "https://fortune.com/2024/12/06/elon-musk-doge-remote-work-federal-employees/",
+        "urlToImage": "https://fortune.com/img-assets/wp-content/uploads/2024/12/GettyImages-2188423002-1-e1733504917222.jpg?resize=1200,600",
+        "publishedAt": "2024-12-06T17:33:00Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "Variety"
+        },
+        "author": "Jennifer Maas",
+        "title": "How \u2018Indiana Jones\u2019 and \u2018Call of Duty\u2019 Are Pushing Xbox Ahead of PlayStation, Nintendo in a Next Gen Console-Less Holiday Season - Variety",
+        "description": "For lots of avid gamers this holiday season, there will be Indiana Jones \u2014 and then everybody else.",
+        "url": "https://variety.com/2024/gaming/news/indiana-jones-and-the-great-circle-preview-video-game-plot-details-1236233902/",
+        "urlToImage": "https://variety.com/wp-content/uploads/2024/09/Indiana-Jones-and-the-Great-Circle.png?w=1000&h=563&crop=1",
+        "publishedAt": "2024-12-06T17:11:00Z",
+        "content": "For lots of avid gamers this holiday season, there will be Indiana Jones \u2014 and then everybody else.\r\nMicrosoft\u2019s gaming division, after spending billions on developers and publishers over the last th\u2026 [+8585 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "Variety"
+        },
+        "author": "Zack Sharf",
+        "title": "Ariana Grande Fights Tears When Asked About Beauty Criticisms on \u2018Wicked\u2019 Press Tour: \u2018It\u2019s Not Welcome. No One Has the Right to Say S\u2014\u2018 - Variety",
+        "description": "Ariana Grande fought tears when asked about body criticism and sayid \"nobody has the right\" to bully her.",
+        "url": "https://variety.com/2024/film/news/ariana-grande-body-criticisms-wicked-press-tour-1236238788/",
+        "urlToImage": "https://variety.com/wp-content/uploads/2024/12/GettyImages-2183300337.jpg?w=1000&h=563&crop=1",
+        "publishedAt": "2024-12-06T17:03:00Z",
+        "content": "Ariana Grande fought back tears during a video interview with French journalist Salima Poumbga when asked about how she copes with beauty standards and constant criticisms over her looks and body. Th\u2026 [+2196 chars]"
+    },
+    {
+        "source": {
+            "id": "cnn",
+            "name": "CNN"
+        },
+        "author": "Alicia Wallace",
+        "title": "US job growth surged in November, adding 227,000 jobs - CNN",
+        "description": "Job growth surged in November, an expected rebound after hurricanes and striking workers heavily distorted the October data.",
+        "url": "https://www.cnn.com/2024/12/06/economy/us-jobs-report-november-final/index.html",
+        "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2185052535-copy.jpg?c=16x9&q=w_800,c_fill",
+        "publishedAt": "2024-12-06T16:55:00Z",
+        "content": "Job growth surged in November, an expected rebound after hurricanes and striking workers heavily distorted the October data.\r\nHowever, looking past the pendulum swing of recent months, the US labor m\u2026 [+6998 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "New York Post"
+        },
+        "author": "Larry Brooks",
+        "title": "Messy Jacob Trouba breakup is just the start of Rangers overhaul - New York Post ",
+        "description": "Excising Trouba takes care of one issue but Drury has spent the week in trade talks with The Post learning that Ottawa\u2019s Brady Tkachuk has become the Rangers\u2019 primary target.",
+        "url": "https://nypost.com/2024/12/06/sports/messy-jacob-trouba-breakup-is-just-the-start-of-a-rangers-overhaul/",
+        "urlToImage": "https://nypost.com/wp-content/uploads/sites/2/2024/12/jacob-trouba-8-new-york-93998235.jpg?quality=75&strip=all&w=1024",
+        "publishedAt": "2024-12-06T16:42:00Z",
+        "content": "There was the eight-day week stretching from the last day of October to the seventh of November of 1975 in which Ed Giacomin was placed on waivers before Jean Ratelle and Brad Park were traded to the\u2026 [+468 chars]"
+    }
+]
