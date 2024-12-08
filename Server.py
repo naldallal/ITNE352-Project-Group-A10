@@ -92,7 +92,7 @@ def handle_client(client_socket):
                 articles_list.insert(0, {"validity": "Invalid argument, So returning all headlines"})
             client_socket.sendall(str(articles_list).encode('utf-8'))
             n=client_socket.recv(1024).decode('utf-8')
-            if n=="exit":
+            if n=="exit" or not n.isdigit():
                 continue
             elif n=="quit":
                 client_socket.close()
