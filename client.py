@@ -20,8 +20,10 @@ connect_to_server()
 root = tk.Tk()
 root.title("News Client")
 root.geometry("500x600")
+def disable_close(): 
+    pass # You can also show a messagebox or do something else here if needed. 
+root.protocol("WM_DELETE_WINDOW", disable_close)
 
-# Ask for the username
 username = simpledialog.askstring("Input", "Enter your name:")
 # Send username to the server
 client_socket.sendall(username.encode('utf-8'))
