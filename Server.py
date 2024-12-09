@@ -107,11 +107,11 @@ def handle_client(client_socket):
             # wait for the client to send the number of the article he wants to see
             n=client_socket.recv(1024).decode('utf-8')
             # print(n)
-            if n=="quit":
-                client_socket.close()
-                print("Client",name,"disconnected")
-                return
-            elif n.isdigit() and int(n)<len(articles_list) and int(n)>=0:
+            # if n=="quit":
+            #     client_socket.close()
+            #     print("Client",name,"disconnected")
+            #     return
+            if n.isdigit() and int(n)<len(articles_list) and int(n)>=0:
                 nn=int(n)-1
                 # prepare the article to be sent to the client
                 aspecified_article = {
@@ -139,11 +139,11 @@ def handle_client(client_socket):
                 sources_list.insert(0, {"validity": "Invalid argument, So returning all sources"})
             client_socket.sendall(str(sources_list).encode('utf-8'))
             n=client_socket.recv(1024).decode('utf-8')
-            if n=="quit":
-                client_socket.close()
-                print("Client",name,"disconnected")
-                return
-            elif n.isdigit() and int(n)<=len(sources_list) and int(n)>0:
+            # if n=="quit":
+            #     client_socket.close()
+            #     print("Client",name,"disconnected")
+            #     return
+            if n.isdigit() and int(n)<=len(sources_list) and int(n)>0:
                 nn=int(n)-1
                 # prepare the specified source to be sent to the client
                 aspecified_source = {
