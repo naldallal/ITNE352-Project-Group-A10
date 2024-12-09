@@ -94,6 +94,8 @@ if the request requested for the second time, the result will be fetched from js
 
 - Sends responses back to the clients.
 
+- Handles client disconnections.
+
  Utilized packeges
 
  - NewsApiClient, import NewsApiClient class from the newsapi library.
