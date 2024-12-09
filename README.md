@@ -1,6 +1,6 @@
 # Multithreading-News-Information-System
 ## Project Description
-This project is a multithreaded news information system that allows users to search for news from https://newsapi.org articles based headlines or sources and by specifying (keyword, country, category, ..). The system connect users to threads and handle various users at time.
+This project is a multithreaded news information system that allows users to search for news from https://newsapi.org articles based headlines or sources and by specifying (keyword, country, category, ..). The system connect users to threads and handle three users at time. where tgey coonect with the server in a GUI interface.
   graphical user interface (GUI).
 ## Semester
 First semester 2023-2024
@@ -18,21 +18,21 @@ Student name - ID: Noor Shafeeq Ashoor - 202210100
 ## Requirements
 Ensure that you have Python installed on your system. \
 Install newsapi module by running the following command: \
-pip install newsapi-python \
+- pip install newsapi-python \
 Ensure that you have the required libraries and modules:
 - json
 - socket
 - threading
 - os
 - tkinter
+- ast
 ## How to Run
 1. Run the server.py file on the server machine.
 2. Run the client.py file on the client machine.
 3. Follow the instructions on the client interface to search for news articles.
 ## client-server scripts 
-1. Client scripts \
-
- Main functionalities: 
+### Client scripts
+#### Main functionalities: 
 - connect to server.
 
 - send the user name to the server .
@@ -43,7 +43,7 @@ Ensure that you have the required libraries and modules:
 
 - Quit the application.
 
-Utilized packeges:
+#### Utilized packeges:
 - socket, allows the client to connect to a server and send/receive data over a network.
 
 - tkinter, create the graphical user interface (GUI) .
@@ -53,7 +53,7 @@ Utilized packeges:
 - ast, provide safely evaluate strings containing in Python literals (like lists or dictionaries) 
 
 
-Functions and Classes: 
+#### Functions and Classes: 
 - connect_to_server function, establishes a connection to the server using the specified IP address and port.
 
 - create_widgets function, set up the main menu of the application, and create buttons for different functionalities .
@@ -81,22 +81,23 @@ Functions and Classes:
 
 - quit function, send a quit signal to the server, closes the socket connection, and exits the application.
 
-2. Server scripts \ 
- Main functionality:
+### Server scripts
+#### Main functionality:
 
 - listens for incoming client connections.
 
 - accept clients and put them in threat , then send greeting with client name.
 
-- processes client requests.
-
-- click for the result if it save on file or not, if not request for the results and save them in json file.
+- processes client requests.(
+if the request requested for the first time, the result will be fetched from API and save it in json file. Otherwise, the result will be fetched from json file.)
 
 - Sends responses back to the clients.
 
- Utilized packeges
+- Handles client disconnections.
 
- - from newsapi import NewsApiClient, import NewsApiClient class from the newsapi library.
+#### Utilized packeges
+
+ - NewsApiClient, import NewsApiClient class from the newsapi library.
 
 - socket, create and manage socket connections for communication between the server and clients.
 
@@ -104,17 +105,18 @@ Functions and Classes:
 
 - json, create json file.
 
-- os, make sure if file available or need request.
+- os, make sure if file available or need API request.
 
-Functions and Classes: 
-- handle_client function, handles communication with a connected client ( handles receiving requests -> processing them -> fetching news data -> and sending responses back to the client.). 
+#### Functions and Classes: 
+- handle_client function, handles communication with a connected client in the threat ( handles receiving requests -> processing them -> fetching news data -> and sending responses back to the client.). 
 
 - start_server, initializes and runs the server and listen for incoming connections.
 
 - __main__ block , the entry point of the application that calls the start_server function with predefined IP and port values to start the server when the script is executed.
 
 ## Additional concept
-- In this project we use Tkinter to provide graphical user-friendly interface (GUI) for the user, making it easier for them to  interact to search news headlines, view sources, and explore detailed articles. Moreover, we use OOP (CustomDialog class) to organize the code and simplify the management of user input functionality. and we inherit 'simpledialog.Dialog ' from the class to customizing behavior to fit the application's needs.
+- In this project we use Tkinter to provide graphical user-friendly interface (GUI) for the user, making it easier for them to  interact to search news headlines, view sources, and explore detailed articles.
+- Moreover, we use OOP (CustomDialog class) to organize the code and simplify the management of user input functionality. and we inherit 'simpledialog.Dialog ' from the class to customizing behavior to fit the application's needs.
 
 ## Acknowledgments 
 I would like to express to eveyone who contributed to the development of this application:
