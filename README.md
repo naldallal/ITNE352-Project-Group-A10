@@ -88,9 +88,8 @@ Ensure that you have the required libraries and modules:
 
 - accept clients and put them in threat , then send greeting with client name.
 
-- processes client requests.  /
-if the request requested for the first time, the result will be fetched from API and save it in json file.  /
-if the request requested for the second time, the result will be fetched from json file.
+- processes client requests.(
+if the request requested for the first time, the result will be fetched from API and save it in json file. Otherwise, the result will be fetched from json file.)
 
 - Sends responses back to the clients.
 
