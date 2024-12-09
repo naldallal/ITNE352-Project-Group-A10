@@ -30,7 +30,8 @@ Ensure that you have the required libraries and modules:
 2. Run the client.py file on the client machine.
 3. Follow the instructions on the client interface to search for news articles.
 ## client-server scripts 
-1. Client scripts
+1. Client scripts \
+
  Main functionalities: 
 - connect to server.
 
@@ -49,7 +50,7 @@ Utilized packeges:
 
 - tkinter.simpledialog , messagebox Provides a way to create simple dialog boxes and display message boxes to the user.
 
--ast, provide safely evaluate strings containing in Python literals (like lists or dictionaries) 
+- ast, provide safely evaluate strings containing in Python literals (like lists or dictionaries) 
 
 
 Functions and Classes: 
@@ -80,7 +81,7 @@ Functions and Classes:
 
 - quit function, send a quit signal to the server, closes the socket connection, and exits the application.
 
-2. Server scripts
+2. Server scripts \ 
  Main functionality:
 
 - listens for incoming client connections.
