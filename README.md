@@ -19,63 +19,73 @@ Student name - ID: Noor Shafeeq Ashoor - 202210100
 Ensure that you have Python installed on your system. \
 Install newsapi module by running the following command: \
 pip install newsapi-python \
-Ensure that you have Python installed on your system. \
 Ensure that you have the required libraries and modules:
 - json
 - socket
 - threading
 - os
+- tkinter
 ## How to Run
 1. Run the server.py file on the server machine.
 2. Run the client.py file on the client machine.
 3. Follow the instructions on the client interface to search for news articles.
 ## client-server scripts 
 1. Client scripts
-+ Main functionalities: 
+ Main functionalities: 
 - connect to server.
 
 - send the user name to the server .
 
-- receives and displays the server's response until it quit.
+- receives and displays the server's response.
 
-+ Utilized packeges:
-- socket for network communication.
+- View article details.
 
-- tkinter to creat GUI .
+- Quit the application.
 
-- from tkinter import messagebox, simpledialog to display pop-up message boxes, and prompt the user for simple input via dialog boxes in the Tkinter GUI.
+Utilized packeges:
+- socket, allows the client to connect to a server and send/receive data over a network.
 
-+ Functions and Classes: 
-- connect_to_server function start connection with server.
+- tkinter, create the graphical user interface (GUI) .
 
-- create_widgets function create main menu interface.
+- tkinter.simpledialog , messagebox Provides a way to create simple dialog boxes and display message boxes to the user.
 
-- update_frame function clears the main frame and update it with new content.
+-ast, provide safely evaluate strings containing in Python literals (like lists or dictionaries) 
 
-- search_headlines function updates the main frame to show options for searching headlines.
 
-- search_headlines_content function provides the UI elements for searching headlines
+Functions and Classes: 
+- connect_to_server function, establishes a connection to the server using the specified IP address and port.
+
+- create_widgets function, set up the main menu of the application, and create buttons for different functionalities .
+
+- update_frame function, clear the current content of the main frame and calls a specified function to populate it with new content.
+
+
+- search_headlines function, update the interface to allow the user to choose options for searching headlines.
+
+- search_headlines_content function, display the options for searching headlines by keyword, category, country, or listing all headlines.
 
 - for each category parameter in search by headline we create function (search_by_keyword / search_by_category / search_by_country / list_all_headlines ) to take input from user, then send it to server for processing .
 
-- list_sources function updates the main frame to show options for listing news sources.
+- list_sources function, update the main frame to show options for listing news sources.
 
-- list_sources_content function provides the UI for searching news sources.
+- list_sources_content function ,display the options for searching sources by category, country, language, or listing all sources.
 
 - for each category in list by sources we create function (source_by_category / source_by_country / source_by_language / list_all_sources ) to take input from user, then send it to the server to process it.
 
-- show_results function displays the results of the search (either headlines or sources) in a text area, and  allows the user to select an article number to view more details about a specific article.
+- show_results function, display the results received from the server in the main frame, including handling the response data and providing details for selected articles.
 
-- show_message function displays a message in a pop-up message box.
+- get_article_number function, create a dialog for the user to input an article number to fetch detailed information about a specific article.
 
-- quit function  handles the application quitting process.
+- show_message function, display an informational message box with the specified message.
+
+- quit function, send a quit signal to the server, closes the socket connection, and exits the application.
 
 2. Server scripts
  Main functionality:
 
 - listens for incoming client connections.
 
-- accept clients and put them in threat , then send greeting with client name
+- accept clients and put them in threat , then send greeting with client name.
 
 - processes client requests.
 
@@ -85,23 +95,25 @@ Ensure that you have the required libraries and modules:
 
  Utilized packeges
 
- - from newsapi import NewsApiClient for import NewsApiClient class from the newsapi library.
+ - from newsapi import NewsApiClient, import NewsApiClient class from the newsapi library.
 
-- socket for network communication.
+- socket, create and manage socket connections for communication between the server and clients.
 
-- threading for handling multiple clients concurrently.
+- threading, allow server to handle multiple clients concurrently  by creating a new thread for each client connection.
 
-- json for create json file.
+- json, create json file.
 
-- os to make sure if file available or need request.
+- os, make sure if file available or need request.
 
 Functions and Classes: 
-- handle_client function to handles communication with a connected client. 
+- handle_client function, handles communication with a connected client ( handles receiving requests -> processing them -> fetching news data -> and sending responses back to the client.). 
 
-- start_server to start the server and listen for incoming connections.
+- start_server, initializes and runs the server and listen for incoming connections.
+
+- __main__ block , the entry point of the application that calls the start_server function with predefined IP and port values to start the server when the script is executed.
 
 ## Additional concept
-- In this project we use Tkinter to provide graphical user-friendly interface (GUI) for the user, making it easier for them to  interact to search news headlines, view sources, and explore detailed articles. 
+- In this project we use Tkinter to provide graphical user-friendly interface (GUI) for the user, making it easier for them to  interact to search news headlines, view sources, and explore detailed articles. Moreover, we use OOP (CustomDialog class) to organize the code and simplify the management of user input functionality. and we inherit 'simpledialog.Dialog ' from the class to customizing behavior to fit the application's needs.
 
 ## Acknowledgments 
 I would like to express to eveyone who contributed to the development of this application:

@@ -114,6 +114,7 @@ def search_headlines_content():
 # Handle searching headlines by keyword
 def search_by_keyword():
     keyword = CustomDialog(root, title="Input", prompt="Enter the keyword:").result
+    keyword = CustomDialog(root, title="Input", prompt="Enter the keyword:").result
     client_socket.sendall(f"headline-keyword-{keyword}".encode('utf-8'))
     response = client_socket.recv(4096).decode('utf-8')
     show_results(response)
@@ -121,12 +122,14 @@ def search_by_keyword():
 # Handle searching headlines by category
 def search_by_category():
     category = CustomDialog(root, title="Input", prompt="Enter category [ business, general, health, science, sports, technology ]:").result
+    category = CustomDialog(root, title="Input", prompt="Enter category [ business, general, health, science, sports, technology ]:").result
     client_socket.sendall(f"headline-category-{category}".encode('utf-8'))
     response = client_socket.recv(4096).decode('utf-8')
     show_results(response)
 
 # Handle searching headlines by country
 def search_by_country():
+    country = CustomDialog(root, title="Input", prompt="Enter a country [au, ca, jp, ae, sa, kr, us, ma]:").result
     country = CustomDialog(root, title="Input", prompt="Enter a country [au, ca, jp, ae, sa, kr, us, ma]:").result
     client_socket.sendall(f"headline-country-{country}".encode('utf-8'))
     response = client_socket.recv(4096).decode('utf-8')
@@ -164,6 +167,7 @@ def list_sources_content():
 # Handle searching sources by category
 def search_sources_by_category():
     category = CustomDialog(root, title="Input", prompt="Enter category [ business, general, health, science, sports, technology ]:").result
+    category = CustomDialog(root, title="Input", prompt="Enter category [ business, general, health, science, sports, technology ]:").result
     client_socket.sendall(f"source-category-{category}".encode('utf-8'))
     response = client_socket.recv(4096).decode('utf-8')
     show_results(response)
@@ -171,12 +175,14 @@ def search_sources_by_category():
 # Handle searching sources by country
 def search_sources_by_country():
     country = CustomDialog(root, title="Input", prompt="Enter country [ au, ca, jp, ae, sa, kr, us, ma ]:").result
+    country = CustomDialog(root, title="Input", prompt="Enter country [ au, ca, jp, ae, sa, kr, us, ma ]:").result
     client_socket.sendall(f"source-country-{country}".encode('utf-8'))
     response = client_socket.recv(4096).decode('utf-8')
     show_results(response)
 
 # Handle searching sources by language
 def search_sources_by_language():
+    language = CustomDialog(root, title="Input", prompt="Enter language [ ar, en ]:").result
     language = CustomDialog(root, title="Input", prompt="Enter language [ ar, en ]:").result
     client_socket.sendall(f"source-language-{language}".encode('utf-8'))
     response = client_socket.recv(4096).decode('utf-8')
@@ -202,6 +208,7 @@ def show_results(response):
 
     response_text.insert(tk.END, "Results:\n\n")
 
+    # Assuming `response` is a string representation of a list of
     # Assuming `response` is a string representation of a list of
     # Assuming `response` is a string representation of a list of dictionaries
     try:
@@ -263,7 +270,6 @@ def show_results(response):
     back_button = tk.Button(main_frame, text="Back to Main Menu", command=create_widgets, font="Calibre 13 bold", padx=10, pady=10, bg='#f5f5dc', fg='#8b4513', activebackground='#d2b48c')
     back_button.pack(pady=10)
 
-
 # Handle quitting the app
 def quit_app():
     client_socket.sendall(b'quit')
@@ -278,3 +284,4 @@ show_message(greeting)
 # Set up the main menu
 create_widgets()
 root.mainloop()
+
