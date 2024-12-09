@@ -32,7 +32,7 @@ Ensure that you have the required libraries and modules:
 3. Follow the instructions on the client interface to search for news articles.
 ## client-server scripts 
 ### Client scripts
- Main functionalities: 
+#### Main functionalities: 
 - connect to server.
 
 - send the user name to the server .
@@ -43,7 +43,7 @@ Ensure that you have the required libraries and modules:
 
 - Quit the application.
 
-Utilized packeges:
+#### Utilized packeges:
 - socket, allows the client to connect to a server and send/receive data over a network.
 
 - tkinter, create the graphical user interface (GUI) .
@@ -53,7 +53,7 @@ Utilized packeges:
 - ast, provide safely evaluate strings containing in Python literals (like lists or dictionaries) 
 
 
-Functions and Classes: 
+#### Functions and Classes: 
 - connect_to_server function, establishes a connection to the server using the specified IP address and port.
 
 - create_widgets function, set up the main menu of the application, and create buttons for different functionalities .
@@ -82,7 +82,7 @@ Functions and Classes:
 - quit function, send a quit signal to the server, closes the socket connection, and exits the application.
 
 ### Server scripts
- Main functionality:
+#### Main functionality:
 
 - listens for incoming client connections.
 
@@ -96,7 +96,7 @@ if the request requested for the second time, the result will be fetched from js
 
 - Handles client disconnections.
 
- Utilized packeges
+#### Utilized packeges
 
  - NewsApiClient, import NewsApiClient class from the newsapi library.
 
@@ -108,7 +108,7 @@ if the request requested for the second time, the result will be fetched from js
 
 - os, make sure if file available or need API request.
 
-Functions and Classes: 
+#### Functions and Classes: 
 - handle_client function, handles communication with a connected client in the threat ( handles receiving requests -> processing them -> fetching news data -> and sending responses back to the client.). 
 
 - start_server, initializes and runs the server and listen for incoming connections.
