@@ -6,42 +6,52 @@ import os
 
 # Function to handle client connections
 def handle_client(client_socket):
-    # client_socket.send(b'Hello, Client!\nWhat is your name?')
     # Get the client's message
     name = client_socket.recv(1024).decode('utf-8')
     # print the client's name
     print(f"Connecting with: {name}")
     # Send a greeting message to the client
     client_socket.sendall(b"Hello, " + name.encode('utf-8'))
+    # Specifying valid arguments
     Countries=["au", "ca", "jp", "ae", "sa", "kr", "us", "ma"]
     Languages=["ar", "en"]
     Categories=["business", "general", "health", "science", "sports", "technology"]
-    while 5:
+    # parameter in requesting news
+    news = NewsApiClient(api_key='d9968ffc1e7f4b02b859492ab750f911')
+    while True:
         valid = True
-        news = NewsApiClient(api_key='d9968ffc1e7f4b02b859492ab750f911')
+        # Get the client's request
         request = client_socket.recv(1024).decode('utf-8').lower()
+        # print the client's request
+        print(name,": requested",request)
         if request =="quit":
             client_socket.close()
             print("Client",name,"disconnected")
             return
         articles=[]
+        # if the client requested the same request before then retreive answer from file
         if os.path.exists(name+'-'+request+'-A10'):
-            print("File found")
+            # print("File found")   Debugging
             with open(name+'-'+request+'-A10', 'r') as json_file:
                 articles = json.load(json_file)
         else:
-            print("No file found")
+            # if the client did not request the same request before then retreive answer from API
+            # print("No file found")
+            # split the request into list
             requestList = request.split("-")
+            # if we are requesting headlines
             if requestList[0] == "headline":
                 if requestList[1]=="keyword":
                     response = news.get_top_headlines(q=requestList[2])
                 elif requestList[1]=="category":
+                    # if the category is not valid then return all headlines
                     if requestList[2] not in Categories:
                         response = news.get_top_headlines()
                         valid = False
                     else:
                         response = news.get_top_headlines(category=requestList[2])
                 elif requestList[1]=="country":
+                    # if the country is not valid then return all headlines
                     if requestList[2] not in Countries:
                         response = news.get_top_headlines()
                         valid = False
@@ -49,6 +59,7 @@ def handle_client(client_socket):
                         response = news.get_top_headlines(country=requestList[2])
                 elif requestList[1]=="all":
                     response = news.get_top_headlines()
+            # if we are requesting sources
             elif requestList[0]=="source":
                 if requestList[1]=="category":
                     if requestList[2] not in Categories:
@@ -70,35 +81,39 @@ def handle_client(client_socket):
                         response = news.get_sources(language=requestList[2])
                 elif requestList[1]=="all":
                     response = news.get_sources()
-            if response: # Extract relevant details and create a list of dictionaries 
+            if response: # Extract relevant details and save them in a file 
                 if requestList[0]=="headline":
                     articles = response['articles'] 
-                    articles = articles[:15]
-                    fileName = name+'-'+request+'-A10'
                 elif requestList[0]=="source":
                     articles = response['sources']
-                    articles = articles[:15]
-                    fileName = name+'-'+request+'-A10'
-            with open(fileName, 'w') as json_file:
-                    json.dump(articles, json_file, indent=4)
+                articles = articles[:15]
+                fileName = name+'-'+request+'-A10'
+                with open(fileName, 'w') as json_file:
+                        json.dump(articles, json_file, indent=4)
         if requestList[0]=="headline":
+            # make a list of dictionaries of the articles
             articles_list = [ 
                     { "source_name": article['source']['name'], 
                     "author": article['author'], 
                     "title": article['title']
                     } for article in articles
                 ]
+            # add more informations to be sent to the client
+            if len(articles_list)==0:
+                articles_list.insert(0, {"validity": "No articles found"})
             if not valid:
                 articles_list.insert(0, {"validity": "Invalid argument, So returning all headlines"})
             client_socket.sendall(str(articles_list).encode('utf-8'))
+            # wait for the client to send the number of the article he wants to see
             n=client_socket.recv(1024).decode('utf-8')
-            print(n)
+            # print(n)
             if n=="quit":
                 client_socket.close()
                 print("Client",name,"disconnected")
                 return
             elif n.isdigit() and int(n)<len(articles_list) and int(n)>=0:
-                nn=int(n)-2
+                nn=int(n)-1
+                # prepare the article to be sent to the client
                 aspecified_article = {
                     "source_name": articles[nn]['source']['name'],
                     "author": articles[nn]['author'],
@@ -110,23 +125,28 @@ def handle_client(client_socket):
                 }
                 client_socket.sendall(str(aspecified_article).encode('utf-8'))
             elif not n.isdigit() or int(n)>=len(articles_list) or  int(n)<0:
-                client_socket.sendall(b"Invalid article number")
+                # handle letters and invalid numbers
+                client_socket.sendall(b"{\"validity\": \"Invalid article number\"}")
         elif requestList[0]=="source":
-            articles_list = [ 
+            # make a list of dictionaries of the sources
+            sources_list = [ 
                     { "source_name": article['name'], 
                     } for article in articles
                 ]
+            if len(sources_list)==0:
+                sources_list.insert(0, {"validity": "No sources found"})
             if not valid:
-                articles_list.insert(0, {"validity": "Invalid argument, So returning all sources"})
-            client_socket.sendall(str(articles_list).encode('utf-8'))
+                sources_list.insert(0, {"validity": "Invalid argument, So returning all sources"})
+            client_socket.sendall(str(sources_list).encode('utf-8'))
             n=client_socket.recv(1024).decode('utf-8')
             if n=="quit":
                 client_socket.close()
                 print("Client",name,"disconnected")
                 return
-            elif n.isdigit() and int(n)<=len(articles_list) and int(n)>0:
+            elif n.isdigit() and int(n)<=len(sources_list) and int(n)>0:
                 nn=int(n)-1
-                aspecified_article = {
+                # prepare the specified source to be sent to the client
+                aspecified_source = {
                     "source_name": articles[nn]['name'],
                     "country": articles[nn]['country'],
                     "description": articles[nn]['description'],
@@ -134,9 +154,10 @@ def handle_client(client_socket):
                     "category": articles[nn]['category'],
                     "language": articles[nn]['language'],
                 }
-                client_socket.sendall(str(aspecified_article).encode('utf-8'))
-            elif not n.isdigit() or int(n)>len(articles_list) or int(n)<=0:
-                client_socket.sendall(b"Invalid article number")
+                client_socket.sendall(str(aspecified_source).encode('utf-8'))
+            # handle letters and invalid numbers
+            elif not n.isdigit() or int(n)>len(sources_list) or int(n)<=0:
+                client_socket.sendall(b"{\"validity\": \"Invalid source number\"}")
     client_socket.close()
     print("Client",name,"disconnected")
 
