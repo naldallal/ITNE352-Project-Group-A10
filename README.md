@@ -50,7 +50,7 @@ Utilized packeges:
 
 - tkinter.simpledialog , messagebox Provides a way to create simple dialog boxes and display message boxes to the user.
 
--ast, provide safely evaluate strings containing in Python literals (like lists or dictionaries) 
+- ast, provide safely evaluate strings containing in Python literals (like lists or dictionaries) 
 
 
 Functions and Classes: 
