@@ -115,7 +115,8 @@ if the request requested for the first time, the result will be fetched from API
 - __main__ block , the entry point of the application that calls the start_server function with predefined IP and port values to start the server when the script is executed.
 
 ## Additional concept
-- In this project we use Tkinter to provide graphical user-friendly interface (GUI) for the user, making it easier for them to  interact to search news headlines, view sources, and explore detailed articles. Moreover, we use OOP (CustomDialog class) to organize the code and simplify the management of user input functionality. and we inherit 'simpledialog.Dialog ' from the class to customizing behavior to fit the application's needs.
+- In this project we use Tkinter to provide graphical user-friendly interface (GUI) for the user, making it easier for them to  interact to search news headlines, view sources, and explore detailed articles.
+- Moreover, we use OOP (CustomDialog class) to organize the code and simplify the management of user input functionality. and we inherit 'simpledialog.Dialog ' from the class to customizing behavior to fit the application's needs.
 
 ## Acknowledgments 
 I would like to express to eveyone who contributed to the development of this application:
