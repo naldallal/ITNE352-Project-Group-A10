@@ -1,9 +1,8 @@
 # Multithreading-News-Information-System
 ## Project Description
-This project is a multithreaded news information system that allows users to search for news from https://newsapi.org articles based headlines or sources and by specifying (keyword, country, category, ..). The system connect users to threads and handle three users at time. where tgey coonect with the server in a GUI interface.
-  graphical user interface (GUI).
+This project is a multithreaded news information system that allows users to search for news from https://newsapi.org articles based headlines or sources and by specifying (keyword, country, category, ..). The system connect users to threads and handle three users at time. where they coonect with the server in a GUI interface.
 ## Semester
-First semester 2023-2024
+First semester 2024-2025
 ## Group
 Group: A10 \
 Course code: ITNE352  
@@ -48,8 +47,6 @@ Ensure that you have the required libraries and modules:
 
 - tkinter, create the graphical user interface (GUI) .
 
-- tkinter.simpledialog , messagebox Provides a way to create simple dialog boxes and display message boxes to the user.
-
 - ast, provide safely evaluate strings containing in Python literals (like lists or dictionaries) 
 
 
@@ -76,6 +73,8 @@ Ensure that you have the required libraries and modules:
 - show_results function, display the results received from the server in the main frame, including handling the response data and providing details for selected articles.
 
 - get_article_number function, create a dialog for the user to input an article number to fetch detailed information about a specific article.
+
+- submit function, handle the submission of the article number input and retrieve the detailed information for the selected article.
 
 - show_message function, display an informational message box with the specified message.
 
@@ -126,6 +125,7 @@ I would like to express to eveyone who contributed to the development of this ap
 
 
 ## conclution
-This project successfully demonstrates the integration of a client-server architecture with a user-friendly GUI and real-time data fetching from NewsAPI.org. 
+This project is a client-server application that allows users to search for news headlines, view news sources, and explore detailed articles. It utilizes the NewsAPI.org API to fetch real-time news data. The application is built using Python and Tkinter for the graphical user interface.  \
+All in all, this project successfully demonstrates the integration of a client-server architecture with a user-friendly GUI and real-time data fetching from NewsAPI.org. 
 
 

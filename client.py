@@ -2,26 +2,27 @@ import socket
 import tkinter as tk
 from tkinter import simpledialog , messagebox
 import ast
-
+# OOP class for creating a custom dialog box
 class CustomDialog(simpledialog.Dialog):
+    # Constructor
     def __init__(self, parent, title=None, prompt=None):
         self.prompt = prompt
         self.result = None
         super().__init__(parent, title)
-
+    # Create the dialog box
     def body(self, master):
         tk.Label(master, text=self.prompt).pack(pady=10)
         self.entry = tk.Entry(master)
         self.entry.pack(pady=10)
         return self.entry
-
+    # button specifying
     def buttonbox(self):
         box = tk.Frame(self)
         submit_button = tk.Button(box, text="Submit", width=10, command=self.ok, default=tk.ACTIVE)
         submit_button.pack(side=tk.LEFT, padx=5, pady=5)
-        self.bind("<Return>", self.ok)  # Submit on Enter key press
+        self.bind("<Return>", self.ok)  
         box.pack()
-
+    # Submit button action
     def apply(self):
         self.result = self.entry.get()
 
@@ -45,11 +46,11 @@ root.geometry("500x600")
 
 # Override the close button
 def disable_close():
-    pass  # You can also show a messagebox or do something else here if needed.
-
+    pass  
+# Disable the close button
 root.protocol("WM_DELETE_WINDOW", disable_close)
 
-# Ask for the username using Custom Dialog
+# Ask for the username 
 username = CustomDialog(root, title="Input", prompt="Enter your name:").result
 # Send username to the server
 client_socket.sendall(username.encode('utf-8'))
@@ -61,7 +62,7 @@ greeting = client_socket.recv(1024).decode('utf-8')
 main_frame = tk.Frame(root)
 main_frame.pack(fill=tk.BOTH, expand=True)
 
-# Main function to create the GUI
+# Create widgets for the main menu
 def create_widgets():
     # Clear the main frame first
     for widget in main_frame.winfo_children():
@@ -187,8 +188,8 @@ def list_all_sources():
 
 # Handle showing results
 def show_results(response):
-    print(response)
-    print(len(response))
+    # print(response) Debug print
+    # print(len(response)) Debug print
     if len(response) == 16:
         response = response[1:]
     for widget in main_frame.winfo_children():
@@ -200,28 +201,27 @@ def show_results(response):
     response_text.insert(tk.END, "Results:\n\n")
 
     
-    # Assuming `response` is a string representation of a list of dictionaries
+    # Decode the response and convert it to a list of dictionaries
     try:
         data = ast.literal_eval(response)
-        print("Data loaded successfully")  # Debug print
     except (ValueError, SyntaxError) as e:
-        print(f"Error decoding string: {e}")  # Debug print
         response_text.insert(tk.END, f"Error decoding response: {e}")
         return
 
     if data: 
         validity_check = data[0] 
+        # Check if 'validity' is in the first item and remove it if it is
         if 'validity' in validity_check: 
             response_text.insert(tk.END, f"{validity_check['validity']}\n") 
-            data = data[1:]  # Skip the first dictionary
-
+            data = data[1:]  
+    # numbering the results
     for idx, item in enumerate(data):
         response_text.insert(tk.END, f"{idx + 1}. ")
         for key, value in item.items():
             response_text.insert(tk.END, f"{key}: {value}\n")
         response_text.insert(tk.END, "\n")
 
-    # Custom dialog box for entering article number
+    # Entering article number
     def get_article_number():
         dialog = tk.Toplevel(root)
         dialog.title("Enter Article Number")
@@ -236,25 +236,22 @@ def show_results(response):
         def submit():
             article_number = entry.get()
             dialog.destroy()
-            #if article_number.lower() != 'exit':
-            response_text.delete(1.0, tk.END)  # Clear the response before showing the article details
+            response_text.delete(1.0, tk.END)  
             client_socket.sendall(article_number.encode('utf-8'))
             article_details = client_socket.recv(4096).decode('utf-8')
             try:
                 data = ast.literal_eval(article_details)
-                print("Data loaded successfully")  # Debug print
-                print(data)  # Debug print
             except (ValueError, SyntaxError) as e:
-                print(f"Error decoding string: {e}")  # Debug print
+                response_text.insert(tk.END, f"Error decoding response: {e}")
+                return
             for key, value in data.items():
                 response_text.insert(tk.END, f"{key}: {value}\n")
             response_text.insert(tk.END, "\n")
-            # return response_text.insert(tk.END, f"\nArticle Details: {data}\n")
 
 
         submit_button = tk.Button(dialog, text="Submit", command=submit)
         submit_button.pack(pady=10)
-
+    # Call the function to get the article number
     get_article_number()
 
     back_button = tk.Button(main_frame, text="Back to Main Menu", command=create_widgets, font="Calibre 13 bold", padx=10, pady=10, bg='#f5f5dc', fg='#8b4513', activebackground='#d2b48c')
