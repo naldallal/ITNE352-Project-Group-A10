@@ -1,7 +1,32 @@
+import tkinter as tk
+from tkinter import simpledialog
+import ast
+
+class CustomDialog(simpledialog.Dialog):
+    def __init__(self, parent, title=None, prompt=None):
+        self.prompt = prompt
+        self.result = None
+        super().__init__(parent, title)
+
+    def body(self, master):
+        tk.Label(master, text=self.prompt).pack(pady=10)
+        self.entry = tk.Entry(master)
+        self.entry.pack(pady=10)
+        return self.entry
+
+    def buttonbox(self):
+        box = tk.Frame(self)
+        submit_button = tk.Button(box, text="Submit", width=10, command=self.ok, default=tk.ACTIVE)
+        submit_button.pack(side=tk.LEFT, padx=5, pady=5)
+        self.bind("<Return>", self.ok)  # Submit on Enter key press
+        box.pack()
+
+    def apply(self):
+        self.result = self.entry.get()
+
 import socket
 import tkinter as tk
-from tkinter import messagebox, simpledialog
-import ast
+from tkinter import messagebox
 
 # Server IP & Port
 SERVER_IP = '127.0.0.1'
@@ -20,11 +45,15 @@ connect_to_server()
 root = tk.Tk()
 root.title("News Client")
 root.geometry("500x600")
-def disable_close(): 
-    pass # You can also show a messagebox or do something else here if needed. 
+
+# Override the close button
+def disable_close():
+    pass  # You can also show a messagebox or do something else here if needed.
+
 root.protocol("WM_DELETE_WINDOW", disable_close)
 
-username = simpledialog.askstring("Input", "Enter your name:")
+# Ask for the username using Custom Dialog
+username = CustomDialog(root, title="Input", prompt="Enter your name:").result
 # Send username to the server
 client_socket.sendall(username.encode('utf-8'))
 
@@ -34,7 +63,6 @@ greeting = client_socket.recv(1024).decode('utf-8')
 # Create the main frame
 main_frame = tk.Frame(root)
 main_frame.pack(fill=tk.BOTH, expand=True)
-
 
 # Main function to create the GUI
 def create_widgets():
@@ -53,12 +81,6 @@ def create_widgets():
 
     quit_button = tk.Button(main_frame, text="Quit", command=quit_app, font="Calibre 13 bold", padx=10, pady=10)
     quit_button.pack(pady=10)
-
-# Function to update the main frame with new content
-def update_frame(content_func):
-    for widget in main_frame.winfo_children():
-        widget.destroy()
-    content_func()
 
 # Function to update the main frame with new content
 def update_frame(content_func):
@@ -91,21 +113,21 @@ def search_headlines_content():
 
 # Handle searching headlines by keyword
 def search_by_keyword():
-    keyword = simpledialog.askstring("Input", "Enter the keyword:")
+    keyword = CustomDialog(root, title="Input", prompt="Enter the keyword:").result
     client_socket.sendall(f"headline-keyword-{keyword}".encode('utf-8'))
     response = client_socket.recv(4096).decode('utf-8')
     show_results(response)
 
 # Handle searching headlines by category
 def search_by_category():
-    category = simpledialog.askstring("Input", "Enter category [ business, general, health, science, sports, technology ]:")
+    category = CustomDialog(root, title="Input", prompt="Enter category [ business, general, health, science, sports, technology ]:").result
     client_socket.sendall(f"headline-category-{category}".encode('utf-8'))
     response = client_socket.recv(4096).decode('utf-8')
     show_results(response)
 
 # Handle searching headlines by country
 def search_by_country():
-    country = simpledialog.askstring("Input", "Enter a country [au, ca, jp, ae, sa, kr, us, ma]:")
+    country = CustomDialog(root, title="Input", prompt="Enter a country [au, ca, jp, ae, sa, kr, us, ma]:").result
     client_socket.sendall(f"headline-country-{country}".encode('utf-8'))
     response = client_socket.recv(4096).decode('utf-8')
     show_results(response)
@@ -141,21 +163,21 @@ def list_sources_content():
 
 # Handle searching sources by category
 def search_sources_by_category():
-    category = simpledialog.askstring("Input", "Enter category [ business, general, health, science, sports, technology ]:")
+    category = CustomDialog(root, title="Input", prompt="Enter category [ business, general, health, science, sports, technology ]:").result
     client_socket.sendall(f"source-category-{category}".encode('utf-8'))
     response = client_socket.recv(4096).decode('utf-8')
     show_results(response)
 
 # Handle searching sources by country
 def search_sources_by_country():
-    country = simpledialog.askstring("Input", "Enter country [ au, ca, jp, ae, sa, kr, us, ma ]:")
+    country = CustomDialog(root, title="Input", prompt="Enter country [ au, ca, jp, ae, sa, kr, us, ma ]:").result
     client_socket.sendall(f"source-country-{country}".encode('utf-8'))
     response = client_socket.recv(4096).decode('utf-8')
     show_results(response)
 
 # Handle searching sources by language
 def search_sources_by_language():
-    language = simpledialog.askstring("Input", "Enter language [ ar, en ]:")
+    language = CustomDialog(root, title="Input", prompt="Enter language [ ar, en ]:").result
     client_socket.sendall(f"source-language-{language}".encode('utf-8'))
     response = client_socket.recv(4096).decode('utf-8')
     show_results(response)
@@ -165,78 +187,6 @@ def list_all_sources():
     client_socket.sendall(b"source-all")
     response = client_socket.recv(4096).decode('utf-8')
     show_results(response)
-
-# Handle showing results
-# def show_results(response):
-#     for widget in main_frame.winfo_children():
-#         widget.destroy()
-    
-#     response_text = tk.Text(main_frame, height=15, width=50)
-#     response_text.pack()
-#     response_text.insert(tk.END, f"{response}\n")
-
-#     article_number = simpledialog.askstring("Input", "Enter the article number for details (or 'exit' to go back):")
-#     if article_number.lower() != 'exit':
-#         # Clear the response before showing the article details
-#         response_text.delete(1.0, tk.END)  
-#         client_socket.sendall(article_number.encode('utf-8'))
-#         article_details = client_socket.recv(4096).decode('utf-8')
-#         response_text.insert(tk.END, f"\nArticle Details: {article_details}\n")
-
-#     back_button = tk.Button(main_frame, text="Back to Main Menu", command=create_widgets, font="Calibre 13 bold", padx=10, pady=10)
-#     back_button.pack()
-
-
-# Handle showing results
-# def show_results(response):
-#     print(response)
-#     print(len(response))
-#     if len(response)==16:
-#         response=response[1:]
-#     for widget in main_frame.winfo_children():
-#         widget.destroy()
-    
-#     response_text = tk.Text(main_frame, height=20, width=60, bg='#f5f5dc', fg='#8b4513')
-#     response_text.pack(pady=10)
-
-#     response_text.insert(tk.END, "Results:\n\n")
-
-#     # Assuming `response` is a string representation of a list of dictionaries
-    
-#     try:
-#         data = ast.literal_eval(response)
-#         print("=============")  # Debug print
-#         type(data)
-
-#           # Convert string to list of dictionaries
-#         print("Data loaded successfully")  # Debug print
-#     except (ValueError, SyntaxError) as e:
-#         print(f"Error decoding string: {e}")  # Debug print
-#         response_text.insert(tk.END, f"Error decoding response: {e}")
-#         return
-#     # print("============="+type(data))  # Debug print
-#     if data: 
-#         validity_check = data[0] 
-#         if 'validity' in validity_check: 
-#             response_text.insert(tk.END, f"{validity_check['validity']}\n") 
-#             data = data[1:] # Skip the first dictionary
-
-#     for idx, item in enumerate(data):
-#         response_text.insert(tk.END, f"{idx + 1}. ")
-#         for key, value in item.items():
-#             response_text.insert(tk.END, f"{key}: {value}\n")
-#         response_text.insert(tk.END, "\n")
-
-#     article_number = simpledialog.askstring("Input", "Enter the article number for details (or 'exit' to go back):")
-#     if article_number.lower() != 'exit':
-#         response_text.delete(1.0, tk.END)  # Clear the response before showing the article details
-#         client_socket.sendall(article_number.encode('utf-8'))
-#         article_details = client_socket.recv(4096).decode('utf-8')
-#         response_text.insert(tk.END, f"\nArticle Details: {article_details}\n")
-
-
-#     back_button = tk.Button(main_frame, text="Back to Main Menu", command=create_widgets, font="Calibre 13 bold", padx=10, pady=10, bg='#f5f5dc', fg='#8b4513', activebackground='#d2b48c')
-#     back_button.pack(pady=10)
 
 # Handle showing results
 def show_results(response):
@@ -252,6 +202,7 @@ def show_results(response):
 
     response_text.insert(tk.END, "Results:\n\n")
 
+    # Assuming `response` is a string representation of a list of
     # Assuming `response` is a string representation of a list of dictionaries
     try:
         data = ast.literal_eval(response)
@@ -292,7 +243,17 @@ def show_results(response):
             response_text.delete(1.0, tk.END)  # Clear the response before showing the article details
             client_socket.sendall(article_number.encode('utf-8'))
             article_details = client_socket.recv(4096).decode('utf-8')
-            response_text.insert(tk.END, f"\nArticle Details: {article_details}\n")
+            try:
+                data = ast.literal_eval(article_details)
+                print("Data loaded successfully")  # Debug print
+                print(data)  # Debug print
+            except (ValueError, SyntaxError) as e:
+                print(f"Error decoding string: {e}")  # Debug print
+            for key, value in data.items():
+                response_text.insert(tk.END, f"{key}: {value}\n")
+            response_text.insert(tk.END, "\n")
+            # return response_text.insert(tk.END, f"\nArticle Details: {data}\n")
+
 
         submit_button = tk.Button(dialog, text="Submit", command=submit)
         submit_button.pack(pady=10)

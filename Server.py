@@ -140,22 +140,49 @@ def handle_client(client_socket):
     client_socket.close()
     print("Client",name,"disconnected")
 
- 
-# Main server function
+
 def start_server(server_ip, server_port):
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind((server_ip, server_port))
     server.listen(5)
     print(f"[*] Listening on {server_ip}:{server_port}")
- 
+    
+    active_connections = []
+
     while True:
-        client_socket, addr = server.accept()
-        # print that the client has connected
-        print(f"Accepted connection from {addr[0]}:{addr[1]}")
-        
-        # Create a new thread to handle the client
-        client_handler = threading.Thread(target=handle_client, args=(client_socket,))
-        client_handler.start()
- 
+        if len(active_connections) < 3:
+            client_socket, addr = server.accept()
+            # Print that the client has connected
+            print(f"Accepted connection from {addr[0]}:{addr[1]}")
+            
+            # Create a new thread to handle the client
+            client_handler = threading.Thread(target=handle_client, args=(client_socket,))
+            client_handler.start()
+            
+            # Append the thread to the active connections list
+            active_connections.append(client_handler)
+            
+            # Remove finished threads from the active connections list
+            active_connections = [t for t in active_connections if t.is_alive()]
+
 if __name__ == "__main__":
     start_server("127.0.0.1", 9999)
+
+# Main server function
+# def start_server(server_ip, server_port):
+#     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#     server.bind((server_ip, server_port))
+#     server.listen(5)
+#     print(f"[*] Listening on {server_ip}:{server_port}")
+ 
+#     while True:
+#         client_socket, addr = server.accept()
+#         # print that the client has connected
+#         print(f"Accepted connection from {addr[0]}:{addr[1]}")
+        
+#         # Create a new thread to handle the client
+#         client_handler = threading.Thread(target=handle_client, args=(client_socket,))
+#         client_handler.start()
+ 
+# if __name__ == "__main__":
+#     start_server("127.0.0.1", 9999)
