@@ -48,7 +48,7 @@ def handle_client(client_socket):
                         response = fetch.json()
                         # print(response)   Debgging
                         # response = news.get_top_headlines(q=requestList[2])
-                        print(response)
+                        # print(response)
                     elif requestList[1]=="category":
                         # if the category is not valid then return all headlines
                         if requestList[2] not in Categories:
@@ -180,7 +180,7 @@ def start_server(server_ip, server_port):
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind((server_ip, server_port))
     server.listen(5)
-    print(f"[*] Listening on {server_ip}:{server_port}")
+    print(f"Listening on {server_ip}:{server_port}")
     
     active_connections = []
 
@@ -190,7 +190,7 @@ def start_server(server_ip, server_port):
         if len(active_connections) < 3:
             client_socket, addr = server.accept()
             # Print that the client has connected
-            print(f"Accepted connection from {addr[0]}:{addr[1]}")
+            # print(f"Accepted connection from {addr[0]}:{addr[1]}")
             
             # Create a new thread to handle the client
             client_handler = threading.Thread(target=handle_client, args=(client_socket,))

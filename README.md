@@ -25,6 +25,7 @@ Ensure that you have the required libraries and modules:
 - os
 - tkinter
 - ast
+- requests
 ## How to Run
 1. Run the server.py file on the server machine.
 2. Run the client.py file on the client machine.
@@ -105,6 +106,8 @@ if the request requested for the first time, the result will be fetched from API
 - json, create json file.
 
 - os, make sure if file available or need API request.
+
+- requests, send HTTP requests to the News API to fetch by keyword because newsAPI function fo not work.
 
 #### Functions and Classes: 
 - handle_client function, handles communication with a connected client in the threat ( handles receiving requests -> processing them -> fetching news data -> and sending responses back to the client.). 
