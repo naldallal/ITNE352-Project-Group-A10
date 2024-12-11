@@ -1,0 +1,54 @@
+[
+    {
+        "source": {
+            "id": "the-wall-street-journal",
+            "name": "The Wall Street Journal"
+        },
+        "author": "Alexander Osipovich",
+        "title": "Behind Bitcoin\u2019s Rally Is a Simple Fact: Supplies Are Limited",
+        "description": "Bulls argue that the token\u2019s scarcity will fuel rising prices, with buyers scrambling to acquire the last new coins to come online",
+        "url": "https://www.wsj.com/finance/currencies/bitcoin-supply-limit-crypto-value-29e068b4?mod=hp_lead_pos3",
+        "urlToImage": "https://images.wsj.net/im-64811888/social",
+        "publishedAt": "2024-12-10T10:30:00Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "crypto-coins-news",
+            "name": "Crypto Coins News"
+        },
+        "author": null,
+        "title": "Crypto Bull Run Brakes Hard as $1.7 Billion Liquidated Overnight",
+        "description": "Crypto markets experienced a significant downturn, leading to over $1.7 billion in liquidations. Bitcoin plummeted below the $100,000 level.",
+        "url": "https://www.ccn.com/news/crypto/crypto-market-bull-2b-liquidated-overnight/",
+        "urlToImage": "https://www.ccn.com/wp-content/uploads/2024/12/crypto-bull-run-breaks-as-market-liquidates_cropped.webp",
+        "publishedAt": "2024-12-10T09:01:45Z",
+        "content": "Key Takeaways\r\n<ul><li>Over $1.7 billion was liquidated on Dec. 9.</li><li>Bitcoin lost its crucial psychological level of $100,000.</li><li>Altcoins, especially XRP, DOGE, and ADA, experienced doubl\u2026 [+2101 chars]"
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "[Removed]"
+        },
+        "author": null,
+        "title": "[Removed]",
+        "description": "[Removed]",
+        "url": "https://removed.com",
+        "urlToImage": null,
+        "publishedAt": "2024-12-10T08:53:24+00:00",
+        "content": "[Removed]"
+    },
+    {
+        "source": {
+            "id": "crypto-coins-news",
+            "name": "Crypto Coins News"
+        },
+        "author": null,
+        "title": "Google\u2019s Quantum Success Won\u2019t Threaten Bitcoin Security, Experts Say",
+        "description": "Google\u2019s new quantum computing chip, Willow, raises concerns over Bitcoin\u2019s security, but experts say quantum threats are decades away.",
+        "url": "https://www.ccn.com/news/crypto/google-quantum-chip-bitcoin-security-threat/",
+        "urlToImage": "https://www.ccn.com/wp-content/uploads/2024/12/google-quantum-computer-bitcoin-threat-cover.webp",
+        "publishedAt": "2024-12-10T08:49:20Z",
+        "content": "Key Takeaways\r\n<ul><li>Google Willow, a new quantum computing chip with 105 qubits, is raising concerns about its impact on Bitcoin security.</li><li>Experts say it would take decades for quantum com\u2026 [+4273 chars]"
+    }
+]
