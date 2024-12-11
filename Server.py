@@ -126,7 +126,7 @@ def handle_client(client_socket):
                         "publish time": articles[nn]['publishedAt'].split("T")[1].split("Z")[0],
                     }
                     client_socket.sendall(str(aspecified_article).encode('utf-8'))
-                elif not n.isdigit() or int(n)>len(articles_list) or  int(n)<0:
+                elif not n.isdigit() or int(n)>len(articles_list) or  int(n)<=0:
                     # handle letters and invalid numbers
                     client_socket.sendall(b"{\"validity\": \"Invalid article number\"}")
             elif requestList[0]=="source":
