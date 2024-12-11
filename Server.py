@@ -113,10 +113,6 @@ def handle_client(client_socket):
                 # wait for the client to send the number of the article he wants to see
                 n=client_socket.recv(1024).decode('utf-8')
                 # print(n)
-                # if n=="quit":
-                #     client_socket.close()
-                #     print("Client",name,"disconnected")
-                #     return
                 if n.isdigit() and int(n)<=len(articles_list) and int(n)>0:
                     nn=int(n)-1
                     # prepare the article to be sent to the client
@@ -130,7 +126,7 @@ def handle_client(client_socket):
                         "publish time": articles[nn]['publishedAt'].split("T")[1].split("Z")[0],
                     }
                     client_socket.sendall(str(aspecified_article).encode('utf-8'))
-                elif not n.isdigit() or int(n)>=len(articles_list) or  int(n)<0:
+                elif not n.isdigit() or int(n)>len(articles_list) or  int(n)<0:
                     # handle letters and invalid numbers
                     client_socket.sendall(b"{\"validity\": \"Invalid article number\"}")
             elif requestList[0]=="source":
@@ -145,10 +141,6 @@ def handle_client(client_socket):
                     sources_list.insert(0, {"validity": "Invalid argument, So returning all sources"})
                 client_socket.sendall(str(sources_list).encode('utf-8'))
                 n=client_socket.recv(1024).decode('utf-8')
-                # if n=="quit":
-                #     client_socket.close()
-                #     print("Client",name,"disconnected")
-                #     return
                 if n.isdigit() and int(n)<=len(sources_list) and int(n)>0:
                     nn=int(n)-1
                     # prepare the specified source to be sent to the client
@@ -164,8 +156,6 @@ def handle_client(client_socket):
                 # handle letters and invalid numbers
                 elif not n.isdigit() or int(n)>len(sources_list) or int(n)<=0:
                     client_socket.sendall(b"{\"validity\": \"Invalid source number\"}")
-        client_socket.close()
-        print("Client",name,"disconnected")
     except (ConnectionResetError, BrokenPipeError): 
         print(f"Client {name} disconnected unexpectedly") 
         client_socket.close() 
@@ -198,28 +188,7 @@ def start_server(server_ip, server_port):
             
             # Append the thread to the active connections list
             active_connections.append(client_handler)
-            
-            # Remove finished threads from the active connections list
-            active_connections = [t for t in active_connections if t.is_alive()]
+
 
 if __name__ == "__main__":
     start_server("127.0.0.1", 9999)
-
-# Main server function
-# def start_server(server_ip, server_port):
-#     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#     server.bind((server_ip, server_port))
-#     server.listen(5)
-#     print(f"[*] Listening on {server_ip}:{server_port}")
- 
-#     while True:
-#         client_socket, addr = server.accept()
-#         # print that the client has connected
-#         print(f"Accepted connection from {addr[0]}:{addr[1]}")
-        
-#         # Create a new thread to handle the client
-#         client_handler = threading.Thread(target=handle_client, args=(client_socket,))
-#         client_handler.start()
- 
-# if __name__ == "__main__":
-#     start_server("127.0.0.1", 9999)
